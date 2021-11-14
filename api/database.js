@@ -2,8 +2,8 @@ var mysql = require('mysql');
 var connection = mysql.createConnection({
 	host:'localhost',
 	user:'root',
-	password:'Teletappi',
-	database:'kvgbank'
+	password:'',	//Muista oman tietokannan salasana ja tietokannan nimi!!
+	database:''	
 });
 connection.connect(function(error){
 	if(!!error) {

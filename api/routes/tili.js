@@ -2,10 +2,11 @@ const express = require('express');
 const router = express.Router();
 const tili = require('../models/tili_model.js');
 
+
 router.get('/:id?',
 function(request, response){
     if(request.params.id){
-        tili.getById(request.params.id, function(err, dbResult){
+        tili.getByID(request.params.id, function(err, dbResult){
             if (err){
                 response.json(err);
             } else{

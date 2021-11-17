@@ -1,7 +1,7 @@
 const db = require('../database');
 
 const tili = {
-  getById: function(id, callback) {
+  getByID: function(id, callback) {
     return db.query('select * from tili where idTili=?', [id], callback);
   },
   getAll: function(callback) {
@@ -9,7 +9,7 @@ const tili = {
   },
   add: function(tili, callback) {
     return db.query(
-      'insert into tili (idTili, Tilinumero, Saldo, tyyppi) values(?,?,?,?)',
+      'insert into tili (idTili, Tilinumero, Saldo, tyyppi) values(?,?,?,?,?)',
       [tili.idTili, tili.Tilinumero, tili.Saldo, tili.tyyppi],
       callback
     );
@@ -20,7 +20,7 @@ const tili = {
   update: function(id, tili, callback) {
     return db.query(
       'update tili set Tilinumero=?, Saldo=?, tyyppi=? where idTili=?',
-      [tili.Tilinumero, tili.Saldo, tili.tyyppi, id],
+      [tili.Tilinumero, tili.Saldo, tili.tyyppi,id],
       callback
     );
   }

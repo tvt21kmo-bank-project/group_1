@@ -45,6 +45,12 @@
       <height>41</height>
      </rect>
     </property>
+    <property name="inputMethodHints">
+     <set>Qt::ImhHiddenText|Qt::ImhNoAutoUppercase|Qt::ImhNoPredictiveText|Qt::ImhSensitiveData</set>
+    </property>
+    <property name="echoMode">
+     <enum>QLineEdit::Password</enum>
+    </property>
    </widget>
    <widget class="QLineEdit" name="lineEditPIN">
     <property name="geometry">
@@ -54,6 +60,12 @@
       <width>291</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="inputMethodHints">
+     <set>Qt::ImhHiddenText|Qt::ImhNoAutoUppercase|Qt::ImhNoPredictiveText|Qt::ImhSensitiveData</set>
+    </property>
+    <property name="echoMode">
+     <enum>QLineEdit::Password</enum>
     </property>
    </widget>
    <widget class="QPushButton" name="btnLogin">
@@ -72,7 +84,7 @@
      </font>
     </property>
     <property name="text">
-     <string>Login</string>
+     <string>Kirjaudu sisään</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_2">

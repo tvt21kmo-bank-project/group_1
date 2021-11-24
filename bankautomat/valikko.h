@@ -8,6 +8,7 @@
 #include "saldokysely.h"
 
 
+
 namespace Ui {
 class valikko;
 }

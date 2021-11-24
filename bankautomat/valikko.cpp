@@ -45,5 +45,5 @@ void valikko::on_btnPininVaihto_clicked()
 
 void valikko::on_btnKirjauduUlos_clicked()
 {
-
+    this->close();
 }

@@ -72,7 +72,7 @@
     <property name="geometry">
      <rect>
       <x>200</x>
-      <y>400</y>
+      <y>420</y>
       <width>251</width>
       <height>31</height>
      </rect>
@@ -125,6 +125,25 @@
     </property>
     <property name="text">
      <string>PIN</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="txtKertoja">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>370</y>
+      <width>251</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+      <underline>true</underline>
+     </font>
+    </property>
+    <property name="text">
+     <string/>
     </property>
    </widget>
   </widget>

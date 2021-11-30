@@ -18,7 +18,8 @@ router.post('/',
               {
                 if(compareResult) {
                   console.log("success");
-                  response.send(true);
+                  response.send(dbResult);
+                  
                 }
                 else {
                     console.log("wrong PIN");

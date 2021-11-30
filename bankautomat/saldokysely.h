@@ -19,16 +19,19 @@ public:
     explicit Saldokysely(QWidget *parent = 0);
     ~Saldokysely();
 
+    void setId(const QString &value);
+
 private slots:
     void on_BtnPaluuValikkoon_clicked();
     void Tulostus(QNetworkReply *reply);
-    void on_btnTilitiedot_clicked();
-
+    void info();
 private:
 
     Ui::Saldokysely *ui;
     QNetworkAccessManager *manager;
     QNetworkReply *reply;
+    QString saldo;
+    QString id;
 };
 
 #endif // SALDOKYSELY_H

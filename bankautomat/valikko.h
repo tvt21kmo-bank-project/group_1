@@ -21,7 +21,12 @@ public:
     explicit valikko(QWidget *parent = 0);
     ~valikko();
 
+
+
+    void setIdTili(const QString &value);
+
 private slots:
+
     void on_btnNosto_clicked();
 
     void on_btnSaldoKysely_clicked();
@@ -32,12 +37,20 @@ private slots:
 
     void on_btnKirjauduUlos_clicked();
 
+    void tulostainfo(QNetworkReply *reply);
+
+
 private:
+    void info();
     Ui::valikko *ui;
     Nosto *objNosto;
     PinKoodinVaihto *objPinKoodinVaihto;
     rahansiirto *objRahanSiirto;
     Saldokysely *objSaldokysely;
+    QNetworkAccessManager *manager;
+    QNetworkReply *reply;
+    QString idTili;
+
 };
 
 #endif // VALIKKO_H

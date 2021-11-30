@@ -12,3 +12,8 @@ Nosto::~Nosto()
 {
     delete ui;
 }
+
+void Nosto::setId(const QString &value)
+{
+    id = value;
+}

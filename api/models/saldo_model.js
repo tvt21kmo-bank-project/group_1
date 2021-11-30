@@ -3,7 +3,7 @@ const tili = require('./tili_model');
 
 const saldo = {
     getSaldo: function(id,callback){
-        return db.query('select saldo from tili where idtili=?', [id], callback)
+        return db.query('select saldo from tili where idTili=?', [id], callback)
     },
 
    

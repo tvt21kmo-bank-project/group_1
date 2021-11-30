@@ -7,6 +7,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     objvalikko=new valikko;
+    idTili = "";
 }
 
 MainWindow::~MainWindow()
@@ -35,22 +36,35 @@ void MainWindow::on_btnLogin_clicked()
         connect(loginManager, SIGNAL(finished (QNetworkReply*)),
         this, SLOT(loginSlot(QNetworkReply*)));
         reply = loginManager->post(request, QJsonDocument(json).toJson());
+
 }
 
 
 void MainWindow::loginSlot(QNetworkReply *reply)
 {
+
     QByteArray response_data=reply->readAll();
-        qDebug()<<response_data;
-        if(response_data=="true"){
+    QJsonDocument json_doc = QJsonDocument::fromJson(response_data);
+       QJsonArray json_array = json_doc.array();
+       foreach (const QJsonValue &value, json_array) {
+       QJsonObject json_obj = value.toObject();
+       idTili+=QString::number(json_obj["tili_idTili"].toInt());
+       }
+
+            //seuraavalla lainilla tehdään käytännössä samakuin pekan esimerkillä. mutta käytetään truen siasta idtiliä varmistukseen.
+
+        if(idTili > 0){
             qDebug()<<"Oikea tunnus ...avaa form";
+            objvalikko->setIdTili(idTili);
+            ui->txtKertoja->setText("");
             objvalikko->show();
+            idTili = "";
         }
         else {
+            ui->txtKertoja->setText("Tunnus ja salasana ei täsmää");
             ui->lineEditPIN->setText("");
             ui->lineEditKorttinumero->setText("");
             qDebug()<<"tunnus ja salasana ei täsmää";
+
         }
 }
-
-

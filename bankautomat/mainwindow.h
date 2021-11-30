@@ -27,13 +27,14 @@ private slots:
 
 private:
 
-
+        int tilinumero();
         Ui::MainWindow *ui;
         QNetworkAccessManager *manager;
         QNetworkAccessManager *oneBookManager;
         QNetworkAccessManager *loginManager;
         QNetworkReply *reply;
         valikko *objvalikko;
+        QString idTili;
 
 };
 

@@ -15,8 +15,11 @@ public:
     explicit Nosto(QWidget *parent = 0);
     ~Nosto();
 
+    void setId(const QString &value);
+
 private:
     Ui::Nosto *ui;
+    QString id;
 };
 
 #endif // NOSTO_H

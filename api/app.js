@@ -11,6 +11,8 @@ var tiliRouter = require('./routes/tili');
 var tapahtumaRouter = require('./routes/tapahtumat');
 var kirjautuminenrouter = require('./routes/kirjautuminen');
 var saldorouter =require('./routes/saldo');
+var maararouter =require('./routes/maara');
+var siirtorouter =require('./routes/siirto');
 
 var app = express();
 
@@ -28,5 +30,7 @@ app.use('/tili', tiliRouter);
 app.use('/tapahtumat',tapahtumaRouter);
 app.use('/kirjautuminen',kirjautuminenrouter);
 app.use('/saldo',saldorouter);
+app.use('/maara',maararouter);
+app.use('/siirto',siirtorouter);
 
 module.exports = app;

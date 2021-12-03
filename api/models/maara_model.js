@@ -9,7 +9,7 @@ const maara = {
       },
       update: function(id, tili, callback) {
         return db.query(
-          'update tili set maara=?',
+          'update tili set maara=? where idTili=?',
           [tili.maara,id],
           callback
         );

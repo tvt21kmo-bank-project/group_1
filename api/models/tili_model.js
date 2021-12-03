@@ -9,7 +9,7 @@ const tili = {
   },
   add: function(tili, callback) {
     return db.query(
-      'insert into tili (idTili, Tilinumero, Saldo, tyyppi) values(?,?,?,?,?)',
+      'insert into tili (idTili, Tilinumero, Saldo, tyyppi) values(?,?,?,?)',
       [tili.idTili, tili.Tilinumero, tili.Saldo, tili.tyyppi],
       callback
     );

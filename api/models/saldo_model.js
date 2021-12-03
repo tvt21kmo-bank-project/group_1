@@ -10,8 +10,8 @@ const saldo = {
 
     update: function(id,tili,callback){
         return db.query(
-            'update tili set saldo = saldo - maara',
-            [tili.Saldo,tili.maara, id],
+            'update tili set saldo = saldo - maara where IdTili=?',
+            [id, tili.Saldo,tili.maara],
             callback
         );
     }

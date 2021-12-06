@@ -3,9 +3,9 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `credit_transfer`(IN first_id INT, I
 BEGIN
   DECLARE test1,test2 INT DEFAULT 0;
   START TRANSACTION;
-  UPDATE tili SET saldo=saldo-amount WHERE idTili=first_id;
+  UPDATE tili SET credit=credit-amount WHERE idTili=first_id;
   SET test1=ROW_COUNT();
-  UPDATE tili SET saldo=saldo+amount WHERE idTili=second_id;
+  UPDATE tili SET credit=credit+amount WHERE idTili=second_id;
   SET test2=ROW_COUNT();
     IF (test1 > 0 AND test2 >0) THEN   
       COMMIT;    

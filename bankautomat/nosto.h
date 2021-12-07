@@ -41,8 +41,6 @@ private slots:
 
     void on_btn100_clicked();
 
-    void on_btnMuu_clicked();
-
 private:
     Ui::Nosto *ui;
     QString id;

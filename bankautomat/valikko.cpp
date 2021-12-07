@@ -88,7 +88,7 @@ void valikko::info()  //tällä haetaan tilinumero
     reply = manager->get(request);
 }
 
-void valikko::info2()
+void valikko::info2() //haetaan tyyppi
 {
     QString site_url="http://localhost:3000/tili/" +idTili;
     QString credentials="newAdmin:newPass";
@@ -116,7 +116,7 @@ void valikko::tulostainfo(QNetworkReply *reply) //tällä tulostetaan tilinumero
     }
 }
 
-void valikko::haetyyppi(QNetworkReply *reply)
+void valikko::haetyyppi(QNetworkReply *reply) // credit ja debit tyypin haku
 {
     QByteArray response_data=reply->readAll();
     QJsonDocument json_doc = QJsonDocument::fromJson(response_data);
@@ -124,7 +124,7 @@ void valikko::haetyyppi(QNetworkReply *reply)
     foreach (const QJsonValue &value, json_array) {
     QJsonObject json_obj = value.toObject();
     tyyppi+=QString::number(json_obj["tyyppi"].toInt());
-    qDebug()<< tyyppi;
+    qDebug()<< "Kortin tyyppi 1 credit, 0 debit ="+tyyppi;
 
     }
 }
@@ -132,7 +132,7 @@ void valikko::haetyyppi(QNetworkReply *reply)
 void valikko::setIdTili(const QString &value) //tällä haetaan tilin id jota voidaan käyttää urllässä
 {
     idTili = value;
-    qDebug() << idTili;
+    qDebug() << "tilin id = "+idTili;
     info();
     info2();
 }

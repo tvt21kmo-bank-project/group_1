@@ -13,25 +13,34 @@ Nosto::~Nosto()
     delete ui;
 }
 
-void Nosto::setId(const QString &value)
+void Nosto::setId(const QString &value)  //haetaan ja piilotetaan id koska voidaan.
 {
     id = value;
     ui->label_idTili->setText(id);
 }
 
-void Nosto::nosta(QNetworkReply *reply)
+void Nosto::setTyyppi(const QString &value) //haetaan kortin tyyppi myöhempää käyttöän varten.
+{
+    tyyppi = value;
+}
+
+
+void Nosto::nosta(QNetworkReply *reply)  //kerrotaan onnistuiko vai eikö nosto
 {
     QByteArray response_data=reply->readAll();
-       QJsonDocument json_doc = QJsonDocument::fromJson(response_data);
-       QJsonArray json_array = json_doc.array();
-       foreach (const QJsonValue &value, json_array) {
-       QJsonObject json_obj = value.toObject();
-       saldo+="Saldo: "+QString::number(json_obj["debit"].toInt());
-       qDebug() << saldo;
+       if(response_data=="true"){
+           qDebug()<<"siirto epä onnistui";
+           ui->labelsuccees->setText("Nosto epäonnistui");
+       }
+       else {
+
+           qDebug()<<"siirto läpi";
+           ui->labelsuccees->setText("Nosto onnistui");
+
        }
 }
 
-void Nosto::on_btn20_clicked()
+void Nosto::on_btn20_clicked() //Aika itsestään selvää mitä nämä ovat. btn(x) kuvastaa nostettavaa summaa.
 {
 
   maara = "20";
@@ -60,29 +69,42 @@ void Nosto::on_btn80_clicked()
 
 }
 
+void Nosto::on_btn100_clicked()
+{
+    maara = "100";
+    ui->lineEditNostettavaSumma->setText(maara);
+}
+
+
+
 void Nosto::on_btnNosta_clicked()
 {
-      qDebug() << maara;
-      qDebug() << tyyppi;
+
+      ui->lineEditNostettavaSumma->text();
+      qDebug() << "Haluttu määrä "+ maara;
+      qDebug() << "Tilin tyyppi 1 credit, 0 debit = "+tyyppi;
 
       if(tyyppi == "0") {
-      QJsonObject json;
-      json.insert("id1",ui->label_idTili->text());
-      json.insert("summa",ui->lineEditNostettavaSumma->text());
-      QString site_url="http://localhost:3000/nosto/debit_withdraw/";
-      QString credentials="newAdmin:newPass";
-      QNetworkRequest request((site_url));
-      request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
-      QByteArray data = credentials.toLocal8Bit().toBase64();
-      QString headerData = "Basic " + data;
-      request.setRawHeader( "Authorization", headerData.toLocal8Bit() );
-      manager = new QNetworkAccessManager(this);
-      connect(manager, SIGNAL(finished (QNetworkReply*)),
-      this, SLOT(nosta(QNetworkReply*)));
-      reply = manager->post(request, QJsonDocument(json).toJson());
+          //Haetulla tyypillä katsotaan kumpaa proceduuria käytetään.
+          QJsonObject json;
+          json.insert("id1",ui->label_idTili->text());
+          json.insert("summa",ui->lineEditNostettavaSumma->text());
+          QString site_url="http://localhost:3000/nosto/debit_withdraw/";
+          QString credentials="newAdmin:newPass";
+          QNetworkRequest request((site_url));
+          request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+          QByteArray data = credentials.toLocal8Bit().toBase64();
+          QString headerData = "Basic " + data;
+          request.setRawHeader( "Authorization", headerData.toLocal8Bit() );
+          manager = new QNetworkAccessManager(this);
+          connect(manager, SIGNAL(finished (QNetworkReply*)),
+          this, SLOT(nosta(QNetworkReply*)));
+          reply = manager->post(request, QJsonDocument(json).toJson());
+
                          }
 
       if(tyyppi == "1") {
+
           QJsonObject json;
           json.insert("id1",ui->label_idTili->text());
           json.insert("summa",ui->lineEditNostettavaSumma->text());
@@ -97,63 +119,17 @@ void Nosto::on_btnNosta_clicked()
           connect(manager, SIGNAL(finished (QNetworkReply*)),
           this, SLOT(nosta(QNetworkReply*)));
           reply = manager->post(request, QJsonDocument(json).toJson());
-      }
+
+                        }
 
 }
 
-void Nosto::on_btnTakaisin_clicked()
+void Nosto::on_btnTakaisin_clicked()   //takaisin valikkoon ja nollataan kaikki
 {
-
     tyyppi = "";
     ui->lineEditNostettavaSumma->setText("");
-    ui->lineEditMuuSumma->setText("");
     this->close();
 }
 
-void Nosto::setTyyppi(const QString &value)
-{
-    tyyppi = value;
-}
 
-void Nosto::on_btn100_clicked()
-{
-    maara = "100";
-    ui->lineEditNostettavaSumma->setText(maara);
-}
 
-void Nosto::on_btnMuu_clicked()
-{
-    if(tyyppi == "0") {
-    QJsonObject json;
-    json.insert("id1",ui->label_idTili->text());
-    json.insert("summa",ui->lineEditMuuSumma->text());
-    QString site_url="http://localhost:3000/nosto/debit_withdraw/";
-    QString credentials="newAdmin:newPass";
-    QNetworkRequest request((site_url));
-    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
-    QByteArray data = credentials.toLocal8Bit().toBase64();
-    QString headerData = "Basic " + data;
-    request.setRawHeader( "Authorization", headerData.toLocal8Bit() );
-    manager = new QNetworkAccessManager(this);
-    connect(manager, SIGNAL(finished (QNetworkReply*)),
-    this, SLOT(nosta(QNetworkReply*)));
-    reply = manager->post(request, QJsonDocument(json).toJson());
-                       }
-
-    if(tyyppi == "1") {
-        QJsonObject json;
-        json.insert("id1",ui->label_idTili->text());
-        json.insert("summa",ui->lineEditMuuSumma->text());
-        QString site_url="http://localhost:3000/nosto/credit_withdraw/";
-        QString credentials="newAdmin:newPass";
-        QNetworkRequest request((site_url));
-        request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
-        QByteArray data = credentials.toLocal8Bit().toBase64();
-        QString headerData = "Basic " + data;
-        request.setRawHeader( "Authorization", headerData.toLocal8Bit() );
-        manager = new QNetworkAccessManager(this);
-        connect(manager, SIGNAL(finished (QNetworkReply*)),
-        this, SLOT(nosta(QNetworkReply*)));
-        reply = manager->post(request, QJsonDocument(json).toJson());
-    }
-}

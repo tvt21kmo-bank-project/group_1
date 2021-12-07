@@ -1,0 +1,18 @@
+
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `debit_withdraw`(IN first_id INT, IN amount DOUBLE )
+BEGIN
+  DECLARE test1 INT DEFAULT 0;
+  START TRANSACTION;
+  UPDATE tili SET debit=debit-amount WHERE idTili=first_id;
+  SET test1=ROW_COUNT();
+   
+    IF (test1 > 0) THEN
+      COMMIT;
+      INSERT INTO tilitapahtuma(tili_idTili,paikka,maara,aika) VALUES(first_id,'Nosto',amount,NOW());
+     
+    ELSE
+      ROLLBACK;
+  END IF;
+END ;;
+DELIMITER ;

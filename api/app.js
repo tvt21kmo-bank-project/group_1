@@ -10,7 +10,8 @@ var korttiRouter = require('./routes/kortti');
 var tiliRouter = require('./routes/tili');
 var tapahtumaRouter = require('./routes/tapahtumat');
 var kirjautuminenrouter = require('./routes/kirjautuminen');
-var saldorouter =require('./routes/saldo');
+var creditrouter =require('./routes/credit');
+var debitrouter =require('./routes/debit');
 var maararouter =require('./routes/maara');
 var siirtorouter =require('./routes/siirto');
 
@@ -29,7 +30,8 @@ app.use('/kortti',korttiRouter);
 app.use('/tili', tiliRouter);
 app.use('/tapahtumat',tapahtumaRouter);
 app.use('/kirjautuminen',kirjautuminenrouter);
-app.use('/saldo',saldorouter);
+app.use('/credit',creditrouter);
+app.use('/debit',debitrouter);
 app.use('/maara',maararouter);
 app.use('/siirto',siirtorouter);
 

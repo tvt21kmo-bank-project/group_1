@@ -1,0 +1,17 @@
+INPUT(
+./release\main.o
+./release\mainwindow.o
+./release\valikko.o
+./release\saldokysely.o
+./release\rahansiirto.o
+./release\nosto.o
+./release\pinkoodinvaihto.o
+./release\tilitapahtumat.o
+./release\moc_mainwindow.o
+./release\moc_valikko.o
+./release\moc_saldokysely.o
+./release\moc_rahansiirto.o
+./release\moc_nosto.o
+./release\moc_pinkoodinvaihto.o
+./release\moc_tilitapahtumat.o
+);

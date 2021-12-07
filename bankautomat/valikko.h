@@ -6,6 +6,7 @@
 #include "pinkoodinvaihto.h"
 #include "rahansiirto.h"
 #include "saldokysely.h"
+#include "tilitapahtumat.h"
 
 
 
@@ -39,14 +40,21 @@ private slots:
 
     void tulostainfo(QNetworkReply *reply);
 
+    void haetyyppi(QNetworkReply *reply);
+
+
+    void on_btnTilitapahtumat_clicked();
 
 private:
     void info();
+    void info2();
+    QString tyyppi;
     Ui::valikko *ui;
     Nosto *objNosto;
     PinKoodinVaihto *objPinKoodinVaihto;
     rahansiirto *objRahanSiirto;
     Saldokysely *objSaldokysely;
+    Tilitapahtumat *objTilitapahtumat;
     QNetworkAccessManager *manager;
     QNetworkReply *reply;
     QString idTili;

@@ -21,9 +21,12 @@ public:
 
     void setId(const QString &value);
 
+    void setTyyppi(const QString &value);
+
 private slots:
     void on_BtnPaluuValikkoon_clicked();
     void Tulostus(QNetworkReply *reply);
+    void Tulostus2(QNetworkReply *reply);
     void info();
 private:
 
@@ -32,6 +35,7 @@ private:
     QNetworkReply *reply;
     QString saldo;
     QString id;
+    QString Tyyppi;
 };
 
 #endif // SALDOKYSELY_H

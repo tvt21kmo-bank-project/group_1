@@ -9,8 +9,8 @@ const tili = {
   },
   add: function(tili, callback) {
     return db.query(
-      'insert into tili (idTili, Tilinumero, Saldo, tyyppi) values(?,?,?,?)',
-      [tili.idTili, tili.Tilinumero, tili.Saldo, tili.tyyppi],
+      'insert into tili (idTili, Tilinumero, debit, credit, tyyppi) values(?,?,?,?,?)',
+      [tili.idTili, tili.Tilinumero, tili.debit,tili.credit, tili.tyyppi],
       callback
     );
   },
@@ -19,8 +19,8 @@ const tili = {
   },
   update: function(id, tili, callback) {
     return db.query(
-      'update tili set Tilinumero=?, Saldo=?, tyyppi=? where idTili=?',
-      [tili.Tilinumero, tili.Saldo, tili.tyyppi,id],
+      'update tili set Tilinumero=?, debit=?, credit=?, tyyppi=? where idTili=?',
+      [tili.Tilinumero, tili.debit, tili.credit,tili.tyyppi,id],
       callback
     );
   }

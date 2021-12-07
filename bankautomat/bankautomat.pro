@@ -30,7 +30,8 @@ SOURCES += \
     saldokysely.cpp \
     rahansiirto.cpp \
     nosto.cpp \
-    pinkoodinvaihto.cpp
+    pinkoodinvaihto.cpp \
+    tilitapahtumat.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -38,7 +39,8 @@ HEADERS += \
     saldokysely.h \
     rahansiirto.h \
     nosto.h \
-    pinkoodinvaihto.h
+    pinkoodinvaihto.h \
+    tilitapahtumat.h
 
 FORMS += \
         mainwindow.ui \
@@ -46,4 +48,5 @@ FORMS += \
     saldokysely.ui \
     rahansiirto.ui \
     nosto.ui \
-    pinkoodinvaihto.ui
+    pinkoodinvaihto.ui \
+    tilitapahtumat.ui

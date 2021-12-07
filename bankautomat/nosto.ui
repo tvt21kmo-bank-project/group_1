@@ -1,21 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <author/>
- <comment/>
- <exportmacro/>
  <class>Nosto</class>
  <widget class="QWidget" name="Nosto">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>546</width>
+    <height>473</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <widget class="QPushButton" name="btn20">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>80</y>
+     <width>80</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>20</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEditNostettavaSumma">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>30</y>
+     <width>261</width>
+     <height>31</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn40">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>80</y>
+     <width>80</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>50</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn60">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>80</y>
+     <width>80</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>60</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn80">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>130</y>
+     <width>80</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>80</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnNosta">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>180</y>
+     <width>261</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Nosta</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnTakaisin">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>340</y>
+     <width>261</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Takaisin valikkoon</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_idTili">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>450</y>
+     <width>16</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>1</pointsize>
+    </font>
+   </property>
+   <property name="inputMethodHints">
+    <set>Qt::ImhHiddenText</set>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn100">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>130</y>
+     <width>80</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>100</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnMuu">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>290</y>
+     <width>261</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Nosta Muu summa</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEditMuuSumma">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>240</y>
+     <width>261</width>
+     <height>31</height>
+    </rect>
+   </property>
+  </widget>
  </widget>
- <pixmapfunction/>
+ <resources/>
  <connections/>
 </ui>

@@ -36,6 +36,7 @@ private:
         valikko *objvalikko;
         QString idTili;
 
+
 };
 
 #endif // MAINWINDOW_H

@@ -148,6 +148,25 @@
     <string/>
    </property>
   </widget>
+  <widget class="QPushButton" name="btnTilitapahtumat">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>120</y>
+     <width>141</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+     <italic>true</italic>
+    </font>
+   </property>
+   <property name="text">
+    <string>Tilitapahtumat</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

@@ -26,7 +26,6 @@ public:
 private slots:
     void on_BtnPaluuValikkoon_clicked();
     void Tulostus(QNetworkReply *reply);
-    void Tulostus2(QNetworkReply *reply);
     void info();
 private:
 

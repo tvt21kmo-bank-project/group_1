@@ -61,8 +61,9 @@ void MainWindow::loginSlot(QNetworkReply *reply)
         if(idTili > 0){
             qDebug()<<"Oikea tunnus ...avaa form";
             objvalikko->setIdTili(idTili);
-            ui->txtKertoja->setText("");
             objvalikko->show();
+
+            //Nollailua
             idTili = "";
             ui->lineEditPIN->setText("");
             ui->lineEditKorttinumero->setText("");
@@ -70,6 +71,8 @@ void MainWindow::loginSlot(QNetworkReply *reply)
                       }
         else          {
             ui->txtKertoja->setText("Tunnus ja salasana ei täsmää");
+
+            //Nollailua
             ui->lineEditPIN->setText("");
             ui->lineEditKorttinumero->setText("");
             qDebug()<<"tunnus ja salasana ei täsmää";

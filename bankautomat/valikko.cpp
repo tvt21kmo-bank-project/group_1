@@ -52,12 +52,15 @@ void valikko::on_btnSaldoKysely_clicked() //reitti saldon kysymiseen
 
 void valikko::on_btnRahanSiirto_clicked() //reitti rahansiirtoon
 {
+    objRahanSiirto->setId(idTili);
     objRahanSiirto->show();
 }
 
 void valikko::on_btnPininVaihto_clicked() //reitti pinin vaihtoon
 {
+    objPinKoodinVaihto->setId(idTili);
     objPinKoodinVaihto->show();
+    this->close();
 }
 
 
@@ -118,6 +121,7 @@ void valikko::tulostainfo(QNetworkReply *reply) //tällä tulostetaan tilinumero
 
 void valikko::haetyyppi(QNetworkReply *reply) // credit ja debit tyypin haku
 {
+    tyyppi = "";
     QByteArray response_data=reply->readAll();
     QJsonDocument json_doc = QJsonDocument::fromJson(response_data);
     QJsonArray json_array = json_doc.array();

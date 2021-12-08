@@ -14,4 +14,8 @@ const PIN = {
           callback);});
       }
   };
+<<<<<<< Updated upstream
 module.exports = PIN;
+=======
+module.exports = PIN;
+>>>>>>> Stashed changes

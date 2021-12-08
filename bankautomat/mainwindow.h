@@ -6,6 +6,7 @@
 #include <QNetworkAccessManager>
 #include <QJsonDocument>
 
+#include "freezer.h"
 #include "valikko.h"
 namespace Ui {
 class MainWindow;
@@ -25,16 +26,42 @@ private slots:
 
      void on_btnLogin_clicked();
 
-private:
+     void on_btn5_clicked();
 
-        int tilinumero();
+     void on_btn1_clicked();
+
+     void on_bt2_clicked();
+
+     void on_btn3_clicked();
+
+     void on_btn4_clicked();
+
+     void on_btn6_clicked();
+
+     void on_btn7_clicked();
+
+     void on_btn8_clicked();
+
+     void on_btn9_clicked();
+
+     void on_btn0_clicked();
+
+private:
+        int vaaraPin;
+        int mervi;
+        QString Korttinumero;
+        QString PIN;
+        QString Number;
         Ui::MainWindow *ui;
         QNetworkAccessManager *manager;
         QNetworkAccessManager *oneBookManager;
         QNetworkAccessManager *loginManager;
         QNetworkReply *reply;
         valikko *objvalikko;
+        freezer *objfreezer;
         QString idTili;
+        void Kontaktori(const QString);
+
 
 
 };

@@ -8,6 +8,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     objvalikko=new valikko;
     idTili = "";
+    Number = "";
+    vaaraPin = 0;
+    objfreezer = new freezer;
 
 }
 
@@ -17,6 +20,8 @@ MainWindow::~MainWindow()
     ui=nullptr;
     delete objvalikko;
     objvalikko=nullptr;
+    delete objfreezer;
+    objfreezer = nullptr;
 }
 
 
@@ -64,20 +69,115 @@ void MainWindow::loginSlot(QNetworkReply *reply)
             objvalikko->show();
 
             //Nollailua
+            ui->txtKertoja->setText("");
             idTili = "";
             ui->lineEditPIN->setText("");
             ui->lineEditKorttinumero->setText("");
+            PIN="";
+            Korttinumero="";
+
 
                       }
         else          {
             ui->txtKertoja->setText("Tunnus ja salasana ei täsmää");
-
+            vaaraPin++; // jääkaappi formi
             //Nollailua
             ui->lineEditPIN->setText("");
             ui->lineEditKorttinumero->setText("");
             qDebug()<<"tunnus ja salasana ei täsmää";
+            PIN="";
+            Korttinumero="";
 
+            if (vaaraPin >= 3)
+                      {
+                         vaaraPin = 0;
+                         objfreezer->showFullScreen();
+                  }
                       }
 
 }
 
+
+void MainWindow::on_btn1_clicked()
+{
+    Number = "1";
+    Kontaktori(Number);
+}
+
+void MainWindow::on_bt2_clicked()
+{
+    Number = "2";
+    Kontaktori(Number);
+
+}
+
+void MainWindow::on_btn3_clicked()
+{
+    Number = "3";
+    Kontaktori(Number);
+
+}
+
+void MainWindow::on_btn4_clicked()
+{
+    Number = "4";
+    Kontaktori(Number);
+
+}
+
+void MainWindow::on_btn5_clicked()
+{
+    Number = "5";
+    Kontaktori(Number);
+
+}
+
+
+void MainWindow::on_btn6_clicked()
+{
+    Number = "6";
+    Kontaktori(Number);
+
+}
+
+void MainWindow::on_btn7_clicked()
+{
+    Number = "7";
+    Kontaktori(Number);
+}
+
+void MainWindow::on_btn8_clicked()
+{
+    Number = "8";
+    Kontaktori(Number);
+
+}
+
+void MainWindow::on_btn9_clicked()
+{
+    Number = "9";
+    Kontaktori(Number);
+
+}
+
+void MainWindow::on_btn0_clicked()
+{
+    Number = "0";
+    Kontaktori(Number);
+
+
+}
+
+void MainWindow::Kontaktori(const QString)
+{
+    Korttinumero.append(Number);
+    mervi = Korttinumero.length();
+    qDebug() << mervi;
+    if(mervi <= 4) {
+        ui->lineEditKorttinumero->setText(Korttinumero);
+    } else if (mervi > 4) {
+        PIN.append(Number);
+        ui->lineEditPIN->setText(PIN);
+    }
+
+}

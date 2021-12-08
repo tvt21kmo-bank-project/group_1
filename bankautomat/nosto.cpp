@@ -133,3 +133,75 @@ void Nosto::on_btnTakaisin_clicked()   //takaisin valikkoon ja nollataan kaikki
 
 
 
+
+void Nosto::on_btn1_clicked()
+{
+    Number = "1";
+    kontaktori(Number);
+}
+
+void Nosto::on_btn2_clicked()
+{
+    Number = "2";
+    kontaktori(Number);
+}
+
+void Nosto::on_btn3_clicked()
+{
+    Number = "3";
+    kontaktori(Number);
+}
+
+void Nosto::on_btn4_clicked()
+{
+    Number = "4";
+    kontaktori(Number);
+}
+
+void Nosto::on_btn5_clicked()
+{
+    Number = "5";
+    kontaktori(Number);
+}
+
+void Nosto::on_btn6_clicked()
+{
+    Number = "6";
+    kontaktori(Number);
+}
+
+void Nosto::on_btn7_clicked()
+{
+    Number = "7";
+    kontaktori(Number);
+}
+
+void Nosto::on_btn8_clicked()
+{
+    Number = "8";
+    kontaktori(Number);
+}
+
+void Nosto::on_btn9_clicked()
+{
+    Number = "9";
+    kontaktori(Number);
+}
+
+void Nosto::on_btn0_clicked()
+{
+    Number = "0";
+    kontaktori(Number);
+}
+
+void Nosto::on_btnTyhjennys_clicked()
+{
+    ui->lineEditNostettavaSumma->setText("");
+    Summa = "";
+}
+
+void Nosto::kontaktori(const QString)
+{
+    Summa.append(Number);
+    ui->lineEditNostettavaSumma->setText(Summa);
+}

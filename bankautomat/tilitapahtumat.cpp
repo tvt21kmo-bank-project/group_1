@@ -50,5 +50,7 @@ void Tilitapahtumat::setId(const QString &value) //haetaan tilin id jotta osataa
 
 void Tilitapahtumat::on_btnTakaisinValikkoon_clicked() //valikkoon
 {
+    tapahtuma = "";
+    ui->txtinfo->setText("");
     this->close();
 }

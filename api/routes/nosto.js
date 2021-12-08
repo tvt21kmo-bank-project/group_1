@@ -8,7 +8,7 @@ router.post('/debit_withdraw', function(request, response){
             response.json(err);
         }
         else{
-            response.json(dbResult.affectedRows);
+            response.json(dbResult);
         }
     })
 }

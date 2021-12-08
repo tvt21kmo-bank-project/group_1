@@ -8,6 +8,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     objvalikko=new valikko;
     idTili = "";
+    objfreezer = new freezer;
 
 }
 
@@ -17,6 +18,8 @@ MainWindow::~MainWindow()
     ui=nullptr;
     delete objvalikko;
     objvalikko=nullptr;
+    delete objfreezer;
+    objfreezer = nullptr;
 }
 
 
@@ -34,10 +37,8 @@ void MainWindow::on_btnLogin_clicked()
         QString headerData = "Basic " + data;
         request.setRawHeader( "Authorization", headerData.toLocal8Bit() );
         loginManager = new QNetworkAccessManager(this);
-
         connect(loginManager, SIGNAL(finished (QNetworkReply*)),
         this, SLOT(loginSlot(QNetworkReply*)));
-
         reply = loginManager->post(request, QJsonDocument(json).toJson());
 
 }
@@ -46,38 +47,36 @@ void MainWindow::on_btnLogin_clicked()
 void MainWindow::loginSlot(QNetworkReply *reply)
 {
 
-       QByteArray response_data=reply->readAll();
-       QJsonDocument json_doc = QJsonDocument::fromJson(response_data);
+    QByteArray response_data=reply->readAll();
+    QJsonDocument json_doc = QJsonDocument::fromJson(response_data);
        QJsonArray json_array = json_doc.array();
-
-       foreach (const QJsonValue &value, json_array)
-            {
-              QJsonObject json_obj = value.toObject();
-              idTili+=QString::number(json_obj["tili_idTili"].toInt());
-            }
+       foreach (const QJsonValue &value, json_array) {
+       QJsonObject json_obj = value.toObject();
+       idTili+=QString::number(json_obj["tili_idTili"].toInt());
+       }
 
             //seuraavalla lainilla tehdään käytännössä samakuin pekan esimerkillä. mutta käytetään truen siasta idtiliä varmistukseen.
 
-        if(idTili > 0){
+        if(idTili > "0"){
             qDebug()<<"Oikea tunnus ...avaa form";
             objvalikko->setIdTili(idTili);
+            ui->txtKertoja->setText("");
             objvalikko->show();
-
-            //Nollailua
             idTili = "";
-            ui->lineEditPIN->setText("");
-            ui->lineEditKorttinumero->setText("");
 
-                      }
-        else          {
+        }
+        else {
+            vaaraPin++;
             ui->txtKertoja->setText("Tunnus ja salasana ei täsmää");
-
-            //Nollailua
             ui->lineEditPIN->setText("");
             ui->lineEditKorttinumero->setText("");
             qDebug()<<"tunnus ja salasana ei täsmää";
 
-                      }
+            if (vaaraPin >= 3)
+            {
+               objfreezer->show();
+        }
+
 
 }
-
+}

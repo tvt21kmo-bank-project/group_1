@@ -13,7 +13,7 @@ Tilitapahtumat::~Tilitapahtumat()
     delete ui;
 }
 
-void Tilitapahtumat::info()
+void Tilitapahtumat::info() //haetaan sitä inffoa tilistä
 {
     QString site_url="http://localhost:3000/tapahtumat/" +id;
     QString credentials="newAdmin:newPass";
@@ -28,27 +28,27 @@ void Tilitapahtumat::info()
     reply = manager->get(request);
 }
 
-void Tilitapahtumat::Tulostus(QNetworkReply *reply)
+void Tilitapahtumat::Tulostus(QNetworkReply *reply) //tulostetaan sitä inffoa
 {
        QByteArray response_data=reply->readAll();
        QJsonDocument json_doc = QJsonDocument::fromJson(response_data);
        QJsonArray json_array = json_doc.array();
        foreach (const QJsonValue &value, json_array) {
        QJsonObject json_obj = value.toObject();
-       tapahtuma+=QString::number(json_obj["maara"].toInt())+" - euroa \rPaikka - "+json_obj["paikka"].toString()+"\rAika - "+json_obj["aika"].toString()+"\r";
+       tapahtuma+=QString::number(json_obj["maara"].toInt())+" - euroa \rTapahtuma - "+json_obj["paikka"].toString()+"\rAika - "+json_obj["aika"].toString()+"\r";
        ui->txtinfo->setText(tapahtuma);
        tapahtuma = "";
        }
 }
 
-void Tilitapahtumat::setId(const QString &value)
+void Tilitapahtumat::setId(const QString &value) //haetaan tilin id jotta osataan tulostaa oikeaa kamaa.
 {
     id = value;
     info();
 }
 
 
-void Tilitapahtumat::on_btnTakaisinValikkoon_clicked()
+void Tilitapahtumat::on_btnTakaisinValikkoon_clicked() //valikkoon
 {
     this->close();
 }

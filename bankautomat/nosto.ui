@@ -17,7 +17,7 @@
    <property name="geometry">
     <rect>
      <x>120</x>
-     <y>80</y>
+     <y>175</y>
      <width>80</width>
      <height>31</height>
     </rect>
@@ -35,7 +35,7 @@
    <property name="geometry">
     <rect>
      <x>120</x>
-     <y>30</y>
+     <y>125</y>
      <width>261</width>
      <height>31</height>
     </rect>
@@ -45,7 +45,7 @@
    <property name="geometry">
     <rect>
      <x>210</x>
-     <y>80</y>
+     <y>175</y>
      <width>80</width>
      <height>31</height>
     </rect>
@@ -63,7 +63,7 @@
    <property name="geometry">
     <rect>
      <x>300</x>
-     <y>80</y>
+     <y>175</y>
      <width>80</width>
      <height>31</height>
     </rect>
@@ -81,7 +81,7 @@
    <property name="geometry">
     <rect>
      <x>120</x>
-     <y>130</y>
+     <y>225</y>
      <width>80</width>
      <height>31</height>
     </rect>
@@ -99,7 +99,7 @@
    <property name="geometry">
     <rect>
      <x>120</x>
-     <y>180</y>
+     <y>280</y>
      <width>261</width>
      <height>31</height>
     </rect>
@@ -117,7 +117,7 @@
    <property name="geometry">
     <rect>
      <x>120</x>
-     <y>340</y>
+     <y>330</y>
      <width>261</width>
      <height>31</height>
     </rect>
@@ -135,7 +135,7 @@
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>450</y>
+     <y>460</y>
      <width>16</width>
      <height>21</height>
     </rect>
@@ -156,7 +156,7 @@
    <property name="geometry">
     <rect>
      <x>210</x>
-     <y>130</y>
+     <y>225</y>
      <width>80</width>
      <height>31</height>
     </rect>
@@ -170,12 +170,32 @@
     <string>100</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="btnMuu">
+  <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
      <x>120</x>
-     <y>290</y>
+     <y>65</y>
      <width>261</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Valitse haluamasi summa</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelsuccees">
+   <property name="geometry">
+    <rect>
+     <x>390</x>
+     <y>280</y>
+     <width>131</width>
      <height>31</height>
     </rect>
    </property>
@@ -185,17 +205,45 @@
     </font>
    </property>
    <property name="text">
-    <string>Nosta Muu summa</string>
+    <string/>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEditMuuSumma">
+  <widget class="QLabel" name="label_succees1">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>310</y>
+     <width>131</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
      <x>120</x>
-     <y>240</y>
-     <width>261</width>
+     <y>90</y>
+     <width>281</width>
      <height>31</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Kirjoittamalla saat muun summan</string>
    </property>
   </widget>
  </widget>

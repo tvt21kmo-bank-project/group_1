@@ -76,7 +76,7 @@ void Saldokysely::Tulostus(QNetworkReply *reply)  // tässä tulostetaan kortin 
               QJsonArray json_array = json_doc.array();
               foreach (const QJsonValue &value, json_array) {
               QJsonObject json_obj = value.toObject();
-           saldo+="Saldo: "+QString::number(json_obj["debit"].toInt());
+           saldo+="debit: "+QString::number(json_obj["debit"].toInt());
            qDebug() << saldo;
            ui->txtSaldo->setText(saldo);
               }

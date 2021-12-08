@@ -28,16 +28,16 @@
     </font>
    </property>
    <property name="text">
-    <string>Takaisin</string>
+    <string> Takaisin valikkoon</string>
    </property>
   </widget>
   <widget class="QTextEdit" name="txtinfo">
    <property name="geometry">
     <rect>
      <x>40</x>
-     <y>20</y>
+     <y>50</y>
      <width>361</width>
-     <height>261</height>
+     <height>241</height>
     </rect>
    </property>
    <property name="font">
@@ -46,6 +46,26 @@
      <weight>75</weight>
      <bold>true</bold>
     </font>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>15</y>
+     <width>361</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>16</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Viimeisin tilitapahtumasi</string>
    </property>
   </widget>
  </widget>

@@ -14,7 +14,7 @@ var creditrouter =require('./routes/credit');
 var debitrouter =require('./routes/debit');
 var siirtorouter =require('./routes/siirto');
 var nostorouter =require('./routes/nosto');
-
+var PINrouter =require('./routes/Pinkoodinvaihto');
 var app = express();
 
 app.use(logger('dev'));
@@ -34,5 +34,5 @@ app.use('/credit',creditrouter);
 app.use('/debit',debitrouter);
 app.use('/siirto',siirtorouter);
 app.use('/nosto',nostorouter);
-
+app.use('/Pinkoodinvaihto',PINrouter);
 module.exports = app;

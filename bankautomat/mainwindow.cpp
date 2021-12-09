@@ -69,6 +69,7 @@ void MainWindow::loginSlot(QNetworkReply *reply)
             objvalikko->show();
 
             //Nollailua
+            vaaraPin = 0;
             ui->txtKertoja->setText("");
             idTili = "";
             ui->lineEditPIN->setText("");
@@ -172,7 +173,6 @@ void MainWindow::Kontaktori(const QString)
 {
     Korttinumero.append(Number);
     mervi = Korttinumero.length();
-    qDebug() << mervi;
     if(mervi <= 4) {
         ui->lineEditKorttinumero->setText(Korttinumero);
     } else if (mervi > 4) {
@@ -180,4 +180,12 @@ void MainWindow::Kontaktori(const QString)
         ui->lineEditPIN->setText(PIN);
     }
 
+}
+
+void MainWindow::on_btntyhjennys_clicked()
+{
+    Korttinumero = "";
+    PIN = "";
+    ui->lineEditKorttinumero->setText("");
+    ui->lineEditPIN->setText("");
 }

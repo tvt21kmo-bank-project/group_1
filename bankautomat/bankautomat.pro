@@ -31,7 +31,8 @@ SOURCES += \
     rahansiirto.cpp \
     nosto.cpp \
     pinkoodinvaihto.cpp \
-    tilitapahtumat.cpp
+    tilitapahtumat.cpp \
+    freezer.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -40,7 +41,8 @@ HEADERS += \
     rahansiirto.h \
     nosto.h \
     pinkoodinvaihto.h \
-    tilitapahtumat.h
+    tilitapahtumat.h \
+    freezer.h
 
 FORMS += \
         mainwindow.ui \
@@ -49,4 +51,5 @@ FORMS += \
     rahansiirto.ui \
     nosto.ui \
     pinkoodinvaihto.ui \
-    tilitapahtumat.ui
+    tilitapahtumat.ui \
+    freezer.ui

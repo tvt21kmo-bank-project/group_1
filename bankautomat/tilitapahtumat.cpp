@@ -36,9 +36,10 @@ void Tilitapahtumat::Tulostus(QNetworkReply *reply) //tulostetaan sitä inffoa
        foreach (const QJsonValue &value, json_array) {
        QJsonObject json_obj = value.toObject();
        tapahtuma+=QString::number(json_obj["maara"].toInt())+" - euroa \rTapahtuma - "+json_obj["paikka"].toString()+"\rAika - "+json_obj["aika"].toString()+"\r";
-       ui->txtinfo->setText(tapahtuma);
-       tapahtuma = "";
        }
+       ui->txtinfo->setText(tapahtuma);
+       reply->deleteLater();
+       manager->deleteLater();
 }
 
 void Tilitapahtumat::setId(const QString &value) //haetaan tilin id jotta osataan tulostaa oikeaa kamaa.

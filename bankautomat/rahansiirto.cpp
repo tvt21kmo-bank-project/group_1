@@ -7,6 +7,7 @@ rahansiirto::rahansiirto(QWidget *parent) :
 {
     ui->setupUi(this);
     tyyppi = "";
+    mervi = 0;
 }
 
 rahansiirto::~rahansiirto()
@@ -14,28 +15,15 @@ rahansiirto::~rahansiirto()
     delete ui;
 }
 
-void rahansiirto::on_Credit_Debit_Switch_toggled(bool checked)
-{
-   if(checked) {
-      //credit
-      tyyppi = "1";
-      ui->labelinfo->setText("credit");
-   } else {
-       //depit
-       tyyppi = "0";
-       ui->labelinfo->setText("debit");
-   }
-}
-
 void rahansiirto::Tulostus(QNetworkReply *reply)
 {
     QByteArray response_data=reply->readAll();
     qDebug() << response_data;
-       if(response_data=="true"){
+       if(response_data=="false"){
            qDebug()<<"siirto epä onnistui";
            ui->labelsuccees->setText("Siirto epäonnistui");
        }
-       else {
+       else if (response_data=="true") {
            qDebug()<<"siirto läpi";
            ui->labelsuccees->setText("Siirto onnistui");
        }
@@ -94,6 +82,11 @@ void rahansiirto::on_btnvalikkoon_clicked()
     ui->labelsuccees->setText("");
     ui->lineEdit_Saaja->setText("");
     ui->lineEdit_Summa->setText("");
+    ui->labelinfo->setText("");
+    id2 = "";
+    summa = "";
+    mervi = 0;
+    tyyppi = "";
     this->close();
 }
 
@@ -159,15 +152,20 @@ void rahansiirto::on_btn0_clicked()
 
 void rahansiirto::kontaktori(const QString)
 {
-    id2.append(Number);
-    mervi = id2.length();
     qDebug() << mervi;
-    if(mervi <= 1) {
+    id2.append(Number);
+    if(mervi==0) {
         ui->lineEdit_Saaja->setText(id2);
-    } else {
+    }
+    else if(mervi==1) {
         summa.append(Number);
         ui->lineEdit_Summa->setText(summa);
     }
+}
+
+void rahansiirto::setTyyppi(const QString &value)
+{
+    tyyppi = value;
 }
 
 void rahansiirto::on_btnpoista_clicked()
@@ -177,4 +175,18 @@ void rahansiirto::on_btnpoista_clicked()
     id2 = "";
     summa = "";
     mervi = 0;
+}
+
+
+
+
+
+void rahansiirto::on_btnOK_clicked() //muunnos juttuja
+{
+        mervi =mervi+1;
+        if(mervi ==2){
+            mervi = 0;
+            id2 = "";
+            summa= "";
+        }
 }

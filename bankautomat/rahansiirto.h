@@ -19,8 +19,9 @@ public:
 
     void setId(const QString &value);
 
+    void setTyyppi(const QString &value);
+
 private slots:
-    void on_Credit_Debit_Switch_toggled(bool checked);
 
     void Tulostus(QNetworkReply *reply);
 
@@ -50,6 +51,9 @@ private slots:
 
     void on_btnpoista_clicked();
 
+
+    void on_btnOK_clicked();
+
 private:
     void kontaktori(const QString);
     Ui::rahansiirto *ui;
@@ -62,6 +66,7 @@ private:
     QString id2;
     QString summa;
     int mervi;
+
 };
 
 #endif // RAHANSIIRTO_H

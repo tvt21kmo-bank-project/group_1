@@ -28,11 +28,11 @@ void Nosto::setTyyppi(const QString &value) //haetaan kortin tyyppi myöhempää
 void Nosto::nosta(QNetworkReply *reply)  //kerrotaan onnistuiko vai eikö nosto
 {
     QByteArray response_data=reply->readAll();
-       if(response_data=="true"){
+       if(response_data=="false"){
            qDebug()<<"siirto epä onnistui";
-           ui->labelsuccees->setText("Nosto epäonnistui");
+           ui->labelsuccees->setText("Tilisi kate ei riitä");
        }
-       else {
+       else if(response_data=="true") {
 
            qDebug()<<"siirto läpi";
            ui->labelsuccees->setText("Nosto onnistui");
@@ -127,6 +127,8 @@ void Nosto::on_btnNosta_clicked()
 void Nosto::on_btnTakaisin_clicked()   //takaisin valikkoon ja nollataan kaikki
 {
     tyyppi = "";
+    Summa = "";
+    ui->labelsuccees->setText("");
     ui->lineEditNostettavaSumma->setText("");
     this->close();
 }

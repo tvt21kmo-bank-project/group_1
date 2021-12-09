@@ -1,5 +1,7 @@
 api/node_modules/
 
+verkkopankki/node_modules/
+
 api/.env
 
 build/

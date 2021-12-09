@@ -6,7 +6,7 @@
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "../../../../../Desktop/Ohjelmistokehityksen sovellusprojekti/group_1/bankautomat/rahansiirto.h"
+#include "../../bankautomat/rahansiirto.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_rahansiirto_t {
-    QByteArrayData data[20];
-    char stringdata0[308];
+    QByteArrayData data[19];
+    char stringdata0[286];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -32,36 +32,35 @@ struct qt_meta_stringdata_rahansiirto_t {
 static const qt_meta_stringdata_rahansiirto_t qt_meta_stringdata_rahansiirto = {
     {
 QT_MOC_LITERAL(0, 0, 11), // "rahansiirto"
-QT_MOC_LITERAL(1, 12, 30), // "on_Credit_Debit_Switch_toggled"
-QT_MOC_LITERAL(2, 43, 0), // ""
-QT_MOC_LITERAL(3, 44, 7), // "checked"
-QT_MOC_LITERAL(4, 52, 8), // "Tulostus"
-QT_MOC_LITERAL(5, 61, 14), // "QNetworkReply*"
-QT_MOC_LITERAL(6, 76, 5), // "reply"
-QT_MOC_LITERAL(7, 82, 20), // "on_btnSiirto_clicked"
-QT_MOC_LITERAL(8, 103, 23), // "on_btnvalikkoon_clicked"
-QT_MOC_LITERAL(9, 127, 15), // "on_btn1_clicked"
-QT_MOC_LITERAL(10, 143, 15), // "on_btn2_clicked"
-QT_MOC_LITERAL(11, 159, 15), // "on_btn3_clicked"
-QT_MOC_LITERAL(12, 175, 15), // "on_btn4_clicked"
-QT_MOC_LITERAL(13, 191, 15), // "on_btn5_clicked"
-QT_MOC_LITERAL(14, 207, 15), // "on_btn6_clicked"
-QT_MOC_LITERAL(15, 223, 15), // "on_btn7_clicked"
-QT_MOC_LITERAL(16, 239, 15), // "on_btn8_clicked"
-QT_MOC_LITERAL(17, 255, 15), // "on_btn9_clicked"
-QT_MOC_LITERAL(18, 271, 15), // "on_btn0_clicked"
-QT_MOC_LITERAL(19, 287, 20) // "on_btnpoista_clicked"
+QT_MOC_LITERAL(1, 12, 8), // "Tulostus"
+QT_MOC_LITERAL(2, 21, 0), // ""
+QT_MOC_LITERAL(3, 22, 14), // "QNetworkReply*"
+QT_MOC_LITERAL(4, 37, 5), // "reply"
+QT_MOC_LITERAL(5, 43, 20), // "on_btnSiirto_clicked"
+QT_MOC_LITERAL(6, 64, 23), // "on_btnvalikkoon_clicked"
+QT_MOC_LITERAL(7, 88, 15), // "on_btn1_clicked"
+QT_MOC_LITERAL(8, 104, 15), // "on_btn2_clicked"
+QT_MOC_LITERAL(9, 120, 15), // "on_btn3_clicked"
+QT_MOC_LITERAL(10, 136, 15), // "on_btn4_clicked"
+QT_MOC_LITERAL(11, 152, 15), // "on_btn5_clicked"
+QT_MOC_LITERAL(12, 168, 15), // "on_btn6_clicked"
+QT_MOC_LITERAL(13, 184, 15), // "on_btn7_clicked"
+QT_MOC_LITERAL(14, 200, 15), // "on_btn8_clicked"
+QT_MOC_LITERAL(15, 216, 15), // "on_btn9_clicked"
+QT_MOC_LITERAL(16, 232, 15), // "on_btn0_clicked"
+QT_MOC_LITERAL(17, 248, 20), // "on_btnpoista_clicked"
+QT_MOC_LITERAL(18, 269, 16) // "on_btnOK_clicked"
 
     },
-    "rahansiirto\0on_Credit_Debit_Switch_toggled\0"
-    "\0checked\0Tulostus\0QNetworkReply*\0reply\0"
-    "on_btnSiirto_clicked\0on_btnvalikkoon_clicked\0"
-    "on_btn1_clicked\0on_btn2_clicked\0"
-    "on_btn3_clicked\0on_btn4_clicked\0"
-    "on_btn5_clicked\0on_btn6_clicked\0"
-    "on_btn7_clicked\0on_btn8_clicked\0"
-    "on_btn9_clicked\0on_btn0_clicked\0"
-    "on_btnpoista_clicked"
+    "rahansiirto\0Tulostus\0\0QNetworkReply*\0"
+    "reply\0on_btnSiirto_clicked\0"
+    "on_btnvalikkoon_clicked\0on_btn1_clicked\0"
+    "on_btn2_clicked\0on_btn3_clicked\0"
+    "on_btn4_clicked\0on_btn5_clicked\0"
+    "on_btn6_clicked\0on_btn7_clicked\0"
+    "on_btn8_clicked\0on_btn9_clicked\0"
+    "on_btn0_clicked\0on_btnpoista_clicked\0"
+    "on_btnOK_clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -80,24 +79,24 @@ static const uint qt_meta_data_rahansiirto[] = {
 
  // slots: name, argc, parameters, tag, flags
        1,    1,   89,    2, 0x08 /* Private */,
-       4,    1,   92,    2, 0x08 /* Private */,
-       7,    0,   95,    2, 0x08 /* Private */,
-       8,    0,   96,    2, 0x08 /* Private */,
-       9,    0,   97,    2, 0x08 /* Private */,
-      10,    0,   98,    2, 0x08 /* Private */,
-      11,    0,   99,    2, 0x08 /* Private */,
-      12,    0,  100,    2, 0x08 /* Private */,
-      13,    0,  101,    2, 0x08 /* Private */,
-      14,    0,  102,    2, 0x08 /* Private */,
-      15,    0,  103,    2, 0x08 /* Private */,
-      16,    0,  104,    2, 0x08 /* Private */,
-      17,    0,  105,    2, 0x08 /* Private */,
-      18,    0,  106,    2, 0x08 /* Private */,
-      19,    0,  107,    2, 0x08 /* Private */,
+       5,    0,   92,    2, 0x08 /* Private */,
+       6,    0,   93,    2, 0x08 /* Private */,
+       7,    0,   94,    2, 0x08 /* Private */,
+       8,    0,   95,    2, 0x08 /* Private */,
+       9,    0,   96,    2, 0x08 /* Private */,
+      10,    0,   97,    2, 0x08 /* Private */,
+      11,    0,   98,    2, 0x08 /* Private */,
+      12,    0,   99,    2, 0x08 /* Private */,
+      13,    0,  100,    2, 0x08 /* Private */,
+      14,    0,  101,    2, 0x08 /* Private */,
+      15,    0,  102,    2, 0x08 /* Private */,
+      16,    0,  103,    2, 0x08 /* Private */,
+      17,    0,  104,    2, 0x08 /* Private */,
+      18,    0,  105,    2, 0x08 /* Private */,
 
  // slots: parameters
-    QMetaType::Void, QMetaType::Bool,    3,
-    QMetaType::Void, 0x80000000 | 5,    6,
+    QMetaType::Void, 0x80000000 | 3,    4,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -121,27 +120,27 @@ void rahansiirto::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         rahansiirto *_t = static_cast<rahansiirto *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->on_Credit_Debit_Switch_toggled((*reinterpret_cast< bool(*)>(_a[1]))); break;
-        case 1: _t->Tulostus((*reinterpret_cast< QNetworkReply*(*)>(_a[1]))); break;
-        case 2: _t->on_btnSiirto_clicked(); break;
-        case 3: _t->on_btnvalikkoon_clicked(); break;
-        case 4: _t->on_btn1_clicked(); break;
-        case 5: _t->on_btn2_clicked(); break;
-        case 6: _t->on_btn3_clicked(); break;
-        case 7: _t->on_btn4_clicked(); break;
-        case 8: _t->on_btn5_clicked(); break;
-        case 9: _t->on_btn6_clicked(); break;
-        case 10: _t->on_btn7_clicked(); break;
-        case 11: _t->on_btn8_clicked(); break;
-        case 12: _t->on_btn9_clicked(); break;
-        case 13: _t->on_btn0_clicked(); break;
-        case 14: _t->on_btnpoista_clicked(); break;
+        case 0: _t->Tulostus((*reinterpret_cast< QNetworkReply*(*)>(_a[1]))); break;
+        case 1: _t->on_btnSiirto_clicked(); break;
+        case 2: _t->on_btnvalikkoon_clicked(); break;
+        case 3: _t->on_btn1_clicked(); break;
+        case 4: _t->on_btn2_clicked(); break;
+        case 5: _t->on_btn3_clicked(); break;
+        case 6: _t->on_btn4_clicked(); break;
+        case 7: _t->on_btn5_clicked(); break;
+        case 8: _t->on_btn6_clicked(); break;
+        case 9: _t->on_btn7_clicked(); break;
+        case 10: _t->on_btn8_clicked(); break;
+        case 11: _t->on_btn9_clicked(); break;
+        case 12: _t->on_btn0_clicked(); break;
+        case 13: _t->on_btnpoista_clicked(); break;
+        case 14: _t->on_btnOK_clicked(); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
         switch (_id) {
         default: *reinterpret_cast<int*>(_a[0]) = -1; break;
-        case 1:
+        case 0:
             switch (*reinterpret_cast<int*>(_a[1])) {
             default: *reinterpret_cast<int*>(_a[0]) = -1; break;
             case 0:

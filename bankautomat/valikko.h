@@ -45,6 +45,8 @@ private slots:
 
     void on_btnTilitapahtumat_clicked();
 
+    void on_Credit_Debit_Switch_toggled(bool checked);
+
 private:
     void info();
     void info2();
@@ -58,7 +60,9 @@ private:
     QNetworkAccessManager *manager;
     QNetworkReply *reply;
     QString idTili;
-
+    QString tilinro;
+    QString asiakas;
+    QString Valinta;
 };
 
 #endif // VALIKKO_H

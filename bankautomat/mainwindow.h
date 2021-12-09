@@ -46,6 +46,8 @@ private slots:
 
      void on_btn0_clicked();
 
+     void on_btntyhjennys_clicked();
+
 private:
         int vaaraPin;
         int mervi;

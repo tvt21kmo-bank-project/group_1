@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title> KVG NATIONAL BANK</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    </head>
+    <body class="container" style="margin-top: 50px;">
+
+    <%if (messages.success) {%>
+    <div class="alert alert-success" role="alert"><%- messages.success %></div>
+    <% } %>
+
+    <% if (messages.error) { %>
+    <div class="alert alert-danger" role="alert"><%- messages.error %></div>
+    <% } %>
+
+    <div class="card">
+    <div class="card-header">
+        <ul class="nav nav-pills w-100">
+            <li class="nav-pill active">
+                <a class="nav-link">Customers</a>
+            </li>
+            <li class="nav-pill ml-auto">
+                <a class="nav-link active" href="/asiakas/add"> Add a Customer</a>
+            </li>
+        </ul>
+    </div>
+    <div class="card-body">
+
+        <%if(data.length) { %>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">Etunimi</th>
+                    <th scope="col">Sukunimi</th>
+                    <th scope="col">Henkilötunnus</th>
+                    <th scope="col">Osoite</th>
+                    <th scope="col">Puhelin</th>
+                    <th width="200px">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(var i = 0; i< data.length; i++) { %>
+                    <tr>
+                        <th scope="row"></th><%= (i+1) %></th>
+                        <td><%= data[i].idAsiakas%></td>
+                        <td><%= data[i].Etunimi%></td>
+                        <td><%= data[i].Sukunimi%></td>
+                        <td><%= data[i].Hetu%></td>
+                        <td><%= data[i].Osoite%></td>
+                        <td><%= data[i].Puhelin%></td>
+                        <td>
+                            <a class="btn btn-success edit" href="../asiakas/update/<%=data[i].idAsiakas%>">Edit</a>
+                            <a class="btn btn-danger delete" onclick="return alert('Are you sure?')" href="../asiakas/delete/<%=data[i].idAsiakas%>">Delete</a>
+                        </td>
+                    </tr>
+                    <% } %>
+            </tbody>
+        </table>
+        <% ] %>
+
+<% if(!data.length){ %>
+<p class="text-center"> No Customer found!</p>
+<% } %>
+
+    </div>
+    </div>
+
+    </body>
+</html>

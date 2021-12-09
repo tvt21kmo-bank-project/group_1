@@ -25,8 +25,8 @@ class Ui_Tilitapahtumat
 {
 public:
     QPushButton *btnTakaisinValikkoon;
-    QTextEdit *txtinfo;
     QLabel *label;
+    QTextEdit *txtinfo;
 
     void setupUi(QWidget *Tilitapahtumat)
     {
@@ -39,22 +39,18 @@ public:
         QFont font;
         font.setPointSize(12);
         btnTakaisinValikkoon->setFont(font);
-        txtinfo = new QTextEdit(Tilitapahtumat);
-        txtinfo->setObjectName(QStringLiteral("txtinfo"));
-        txtinfo->setGeometry(QRect(40, 50, 361, 241));
-        QFont font1;
-        font1.setPointSize(12);
-        font1.setBold(true);
-        font1.setWeight(75);
-        txtinfo->setFont(font1);
         label = new QLabel(Tilitapahtumat);
         label->setObjectName(QStringLiteral("label"));
         label->setGeometry(QRect(40, 15, 361, 21));
-        QFont font2;
-        font2.setPointSize(16);
-        font2.setBold(true);
-        font2.setWeight(75);
-        label->setFont(font2);
+        QFont font1;
+        font1.setPointSize(16);
+        font1.setBold(true);
+        font1.setWeight(75);
+        label->setFont(font1);
+        txtinfo = new QTextEdit(Tilitapahtumat);
+        txtinfo->setObjectName(QStringLiteral("txtinfo"));
+        txtinfo->setGeometry(QRect(40, 50, 351, 251));
+        txtinfo->setFont(font);
 
         retranslateUi(Tilitapahtumat);
 

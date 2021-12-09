@@ -46,6 +46,7 @@ public:
     QPushButton *btn8;
     QPushButton *btn9;
     QPushButton *btn0;
+    QPushButton *btntyhjennys;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -98,7 +99,7 @@ public:
         label_3->setFont(font2);
         txtKertoja = new QLabel(centralWidget);
         txtKertoja->setObjectName(QStringLiteral("txtKertoja"));
-        txtKertoja->setGeometry(QRect(410, 270, 251, 31));
+        txtKertoja->setGeometry(QRect(410, 320, 251, 31));
         QFont font3;
         font3.setPointSize(12);
         font3.setUnderline(true);
@@ -146,6 +147,12 @@ public:
         btn0->setObjectName(QStringLiteral("btn0"));
         btn0->setGeometry(QRect(300, 390, 51, 41));
         btn0->setFont(font4);
+        btntyhjennys = new QPushButton(centralWidget);
+        btntyhjennys->setObjectName(QStringLiteral("btntyhjennys"));
+        btntyhjennys->setGeometry(QRect(400, 270, 71, 41));
+        QFont font5;
+        font5.setPointSize(10);
+        btntyhjennys->setFont(font5);
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -181,6 +188,7 @@ public:
         btn8->setText(QApplication::translate("MainWindow", "8", Q_NULLPTR));
         btn9->setText(QApplication::translate("MainWindow", "9", Q_NULLPTR));
         btn0->setText(QApplication::translate("MainWindow", "0", Q_NULLPTR));
+        btntyhjennys->setText(QApplication::translate("MainWindow", "Tyhjennys", Q_NULLPTR));
     } // retranslateUi
 
 };

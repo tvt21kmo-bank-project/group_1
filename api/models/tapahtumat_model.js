@@ -15,7 +15,7 @@ const tilitapahtuma = {
     );
   },
   delete: function(id, callback) {
-    return db.query('delete from tilitapahtuma where idTilitapahtuma=?', [id], callback);
+    return db.query('delete from tilitapahtuma where tili_idTili=?', [id], callback);
   },
   update: function(idTilitapahtuma, tilitapahtuma, callback) {
     return db.query(

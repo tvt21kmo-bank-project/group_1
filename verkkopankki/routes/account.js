@@ -20,31 +20,31 @@ router.get('/', function(req,res,next) {
 router.get('/add', function(req,res,next){
     res.render('Tili/add',{
         
-        idtili: '',
+        idTili: '',
         Tilinumero: '',
-        Debit: '',
-        Credit:'',
+        debit: '',
+        credit:'',
         Tyyppi:'',
     })
 })
 
 router.post('/add', function(req,res,next){
     
-    let idtili = req.body.idtili;
+    let idTili = req.body.idTili;
     let Tilinumero = req.body.Tilinumero;
-    let Debit = req.body.Debit;
-    let Credit = req.body.Credit;
+    let debit = req.body.debit;
+    let credit = req.body.credit;
     let errors = false;
 
-    if(idtili.length === 0 || Tilinumero.length === 0) {
+    if(idTili.length === 0 || Tilinumero.length === 0) {
         errors = true;
         req.flash('Error!', "Please try again");
         res.render('Tili/add', {
             
-            idtili:'',
+            idTili:'',
             Tilinumero:'',
-            Debit:'',
-            Credit:'',
+            debit:'',
+            credit:'',
             Tyyppi:''
         })
     }
@@ -53,10 +53,10 @@ router.post('/add', function(req,res,next){
     if(!errors){
         var form_data = {
             
-            idtili: idtili,
+            idTili: idTili,
             Tilinumero: Tilinumero,
-            Debit: Debit,
-            Credit: Credit,
+            debit: debit,
+            credit: credit,
         }
 
         dbConn.query('INSERT INTO Tili SET ?', form_data,function(err,result){
@@ -65,10 +65,10 @@ router.post('/add', function(req,res,next){
 
                 res.render('Tili/add', {
                     
-                    idtili: form_data.idtili,
+                    idTili: form_data.idTili,
                     Tilinumero: form_data.Tilinumero,
-                    Debit: form_data.Debit,
-                    Credit: form_data.Credit,
+                    debit: form_data.debit,
+                    credit: form_data.credit,
                     Tyyppi: form_data.Tyyppi
                 })
             } else {
@@ -89,16 +89,16 @@ router.get('/edit/(:idTili)',function(req,res,next){
 
         // jos Tilita ei löydy
         if(rows.length <= 0){
-            req.flash('error', 'No customer found with id = ' + idTili)
+            req.flash('error', 'No Account found with id = ' + idTili)
             res.redirect('/Account')
         }
         else{
             res.render('Tili/edit', {
-                title: 'Edit Customer',
+                title: 'Edit Account',
                 idTili: rows[0].idTili,
                 Tilinumero: rows[0].Tilinumero,
-                Debit: rows[0].Debit,
-                Credit: rows[0].Credit,
+                debit: rows[0].debit,
+                credit: rows[0].credit,
                 Tyyppi: rows[0].Tyyppi
             })
         }
@@ -109,20 +109,20 @@ router.get('/edit/(:idTili)',function(req,res,next){
 router.post('/edit/:idTili',function(req,res,next){
     let idTili = req.body.idTili;
     let Tilinumero = req.body.Tilinumero;
-    let Debit = req.body.Debit;
-    let Credit = req.body.Credit;
+    let debit = req.body.debit;
+    let credit = req.body.credit;
     let Tyyppi = req.body.Tyyppi;
     let errors = false;
 
-    if(idtili.length === 0 || Tilinumero.length === 0){
+    if(idTili.length === 0 || Tilinumero.length === 0){
         errors = true;
 
         req.flash('error', "Please enter something");
         res.render('Account/edit', {
            idTili: idTili,
             Tilinumero: Tilinumero,
-            Debit: Debit,
-            Credit,
+            debit: debit,
+            credit,
             Tyyppi
         })
     }
@@ -131,8 +131,8 @@ router.post('/edit/:idTili',function(req,res,next){
         var form_data = {
             idTili: idTili,
             Tilinumero: Tilinumero,
-            Debit: Debit,
-            Credit: Credit,
+            debit: debit,
+            credit: credit,
             Tyyppi: Tyyppi
         } // päivittää tietokantaan
         dbConn.query('UPDATE Tili SET ? WHERE idTili = ' + idTili, form_data,function(err, result){
@@ -141,12 +141,12 @@ router.post('/edit/:idTili',function(req,res,next){
                 res.render('Account/edit',{
                     idTili: form_data.idTili,
                     Tilinumero: form_data.Tilinumero,
-                    Debit: form_data.Debit,
-                    Credit: form_data.Credit,
+                    debit: form_data.debit,
+                    credit: form_data.credit,
                     Tyyppi: form_data.Tyyppi
                 })
             } else {
-                req.flash('success', 'Customer successfully updated');
+                req.flash('success', 'Account successfully updated');
                 res.redirect('/Account');
             }
         })
@@ -161,7 +161,7 @@ router.get('/delete/(:idTili)', function(req,res,next){
             req.flash('error',err)
             res.redirect('/Account')
         } else {
-            req.flash('success', 'Customer successfully deleted! ID = ' + idTili)
+            req.flash('success', 'Account successfully deleted! ID = ' + idTili)
             res.redirect('/Account')
         }
     })

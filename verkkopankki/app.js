@@ -11,7 +11,12 @@ var connection  = require('./lib/db');
 
 var indexRouter = require('./routes/index');
 var booksRouter = require('./routes/Customers');
+<<<<<<< Updated upstream
 
+=======
+var TransRouter = require('./routes/transactions')
+var TiliRouter  = require('./routes/Account');
+>>>>>>> Stashed changes
 var app = express();
 
 // view engine setup
@@ -36,7 +41,12 @@ app.use(flash());
 
 app.use('/', indexRouter);
 app.use('/Customers', booksRouter);
+<<<<<<< Updated upstream
 
+=======
+app.use('/Transactions',TransRouter);
+app.use('/Account' TiliRouter);
+>>>>>>> Stashed changes
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

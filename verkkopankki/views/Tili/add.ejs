@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content= "width=device-width, initial-scale=1, shrink-to-fit=n0">
+        <title> Add Account</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    </head>
+    <body class="container" style="margin-top: 50;">
+        <style>
+            body{ background-color: rgb(12, 26, 58);
+            }
+            .card{
+                background-color: rgb(0, 0, 0);
+            }
+            div{
+                background-color: rgb(54, 54, 54);
+                color:white;
+            }
+            .button{
+                
+                background-color: #6d6b68;
+                border: none;
+                color: rgb(0, 0, 0);
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                cursor: pointer;
+            }
+            </style>
+            <a href="/Account" class="button">Back</a>
+    <% if (messages.error) { %>
+    <div class="alert alert-danger" role="alert"><%- messages.error %></div>
+    <% } %>
+
+    <div class="card">
+        <div class="card-header">
+            Add Account
+        </div>
+        <div class="card-body">
+            <form action="/Account/add" method="post">
+             
+                <div>
+                <label> ID:</label>
+                <input type="text" class="form-control" name="idtili" value="<%= idtili %>" autocomplete="off">
+                </div>
+                <div>
+                <label> Tilinumero:</label>
+                <input type="text" class="form-control" name="Tilinumero" value="<%= Tilinumero %>" autocomplete="off">
+                </div>
+                <div>
+                <label> debit:</label>
+                <input type="text" class="form-control" name="debit" value="<%= debit %>" autocomplete="off">
+                </div>
+                <div>
+                <label> credit:</label>
+                <input type="text" class="form-control" name="credit" value="<%= credit %>" autocomplete="off">
+                </div>
+                <div>
+                <label> Tyyppi:</label>
+                <input type="text" class="form-control" name="Tyyppi" value="<%= Tyyppi %>" autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <input type="Submit" class="btn btn-ifno" value="Add"/>
+                </div>
+            </form>
+        </div>
+    </div>
+    </body>
+</html>

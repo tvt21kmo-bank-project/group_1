@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title> KVG NATIONAL BANK</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    </head>
+    <body class="container" style="margin-top: 50px;">
+        <style>body{
+            background-color: rgb(44, 38, 38);
+        }
+        ul{
+            background-color: rgb(128, 80, 66);
+        }
+        .card{
+            background-color: rgb(128, 80, 66);
+        }
+        div{
+            background-color: rgb(54, 54, 54);
+            color:white;
+        }
+        .button{
+            
+            background-color: #6d6b68;
+            border: none;
+            color: rgb(0, 0, 0);
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+        </style>
+        <a href="/" class="button">Home</a>
+    <%if (messages.success) { %>
+    <div class="alert alert-success" role="alert"><%- messages.success %></div>
+    <% } %>
+
+    <% if (messages.error) { %>
+    <div class="alert alert-danger" role="alert"><%- messages.error %></div>
+    <% } %>
+
+    <div class="card">
+    <div class="card-header">
+        <ul class="nav nav-pills w-100">
+            <li class="nav-pill active">
+                <a class="nav-link">Account</a>
+            </li>
+            <li class="nav-pill ml-auto">
+                <a class="nav-link active" href="/Account/add"> Add a Account</a>
+            </li>
+        </ul>
+    </div>
+    <div class="card-body">
+
+        <% if (data.length) { %>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">id</th>
+                    <th scope="col">Account</th>
+                    <th scope="col">Account number</th>
+                    <th scope="col">debit</th>
+                    <th scope="col">credit</th>
+                    <th scope="col">type</th>
+                    <th width="200px">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(var i = 0; i< data.length; i++) { %>
+                    <tr>
+                        <th scope="col"></th>
+                        <td><%= data[i].idAsiakas%></td>
+                        <td><%= data[i].idTili%></td>
+                        <td><%= data[i].Tilinumero%></td>
+                        <td><%= data[i].debit%></td>
+                        <td><%= data[i].credit%></td>
+                        <td><%= data[i].Tyyppi%></td>
+                        <td>
+                            <a class="btn btn-success edit" href="../Account/edit/<%=data[i].idAsiakas%>">Edit</a>
+                            <a class="btn btn-danger delete" onclick="return alert('Are you sure?')" href="../Account/delete/<%=data[i].idAsiakas%>">Delete</a>
+                        </td>
+                    </tr>
+                    <% } %>
+            </tbody>
+        </table>
+        <% } %>
+
+<% if(!data.length) { %>
+<p class="text-center"> No Account found!</p>
+<% } %>
+
+    </div>
+    </div>
+
+<<<<<<< Updated upstream
+.dropdown-content a:hover {background-color: rgb(102, 100, 98);}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #636160;}
+</style>
+<title> KVG NATIONAL BANK</title>
+</head>
+<body>
+
+<h2>super secret admin site for KVG National Bank</h2>
+
+<div class="dropdown">
+  <button class="dropbtn">Go to</button>
+  <div class="dropdown-content">
+    <a href="/Accounts">Accounts</a>
+    <a href="#">Link 2</a>
+    <a href="#">Link 3</a>
+  </div>
+</div>
+</body>
+</html>
+=======
+    </body>
+</html>
+>>>>>>> Stashed changes

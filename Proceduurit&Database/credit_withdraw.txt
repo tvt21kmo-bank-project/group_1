@@ -9,7 +9,7 @@ BEGIN
   
     IF (test1 > 0 ) THEN   
       COMMIT;    
-      INSERT INTO tilitapahtuma(tili_idTili,paikka,maara,aika) VALUES(first_id,'Nosto',amount,NOW());
+      INSERT INTO tilitapahtuma(tili_idTili,paikka,maara,aika) VALUES(first_id,'Nosto',amount,CURDATE());
       
     ELSE
       ROLLBACK;

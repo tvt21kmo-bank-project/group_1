@@ -9,8 +9,8 @@ BEGIN
   SET test2=ROW_COUNT();
     IF (test1 > 0 AND test2 >0) THEN
       COMMIT;
-      INSERT INTO tilitapahtuma(tili_idTili,paikka,maara,aika) VALUES(first_id,'Nosto',amount,NOW());
-      INSERT INTO tilitapahtuma(tili_idTili,paikka,maara,aika) VALUES(second_id,'Talletus',amount,NOW());
+      INSERT INTO tilitapahtuma(tili_idTili,paikka,maara,aika) VALUES(first_id,'Siirto',amount,CURDATE());
+      INSERT INTO tilitapahtuma(tili_idTili,paikka,maara,aika) VALUES(second_id,'Talletus',amount,CURDATE());
     ELSE
       ROLLBACK;
   END IF;

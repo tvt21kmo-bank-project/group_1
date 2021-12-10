@@ -18,7 +18,7 @@ const kortti = {
       
   },
   delete: function(id, callback) {
-    return db.query('delete from kortti where asiakas_idAsiakas=?', [id], callback);
+    return db.query('delete from kortti where tili_idTili=?', [id], callback);
   },
   update: function(id, kortti, callback) {
 

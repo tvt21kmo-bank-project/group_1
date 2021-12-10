@@ -6,11 +6,14 @@ Nosto::Nosto(QWidget *parent) :
     ui(new Ui::Nosto)
 {
     ui->setupUi(this);
+
+
 }
 
 Nosto::~Nosto()
 {
     delete ui;
+
 }
 
 void Nosto::setId(const QString &value)  //haetaan ja piilotetaan id koska voidaan.

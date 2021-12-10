@@ -6,6 +6,7 @@
 #include <QNetworkAccessManager>
 
 
+
 namespace Ui {
 class Nosto;
 }

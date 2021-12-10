@@ -58,7 +58,7 @@ void MainWindow::loginSlot(QNetworkReply *reply)
        foreach (const QJsonValue &value, json_array)
             {
               QJsonObject json_obj = value.toObject();
-              idTili+=QString::number(json_obj["tili_idTili"].toInt());
+              idTili+=QString::number(json_obj["asiakas_idAsiakas"].toInt());
             }
 
             //seuraavalla lainilla tehdään käytännössä samakuin pekan esimerkillä. mutta käytetään truen siasta idtiliä varmistukseen.

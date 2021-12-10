@@ -62,28 +62,28 @@
             <thead>
                 <tr>
                     <th scope="col"></th>
-                    <th scope="col">id</th>
-                    <th scope="col">Account</th>
-                    <th scope="col">Account number</th>
+                    <th scope="col">idTili</th>
+                    <th scope="col">Tilinumero</th>
                     <th scope="col">debit</th>
                     <th scope="col">credit</th>
-                    <th scope="col">type</th>
-                    <th width="200px">Action</th>
+                    <th scope="col">tyyppi</th>
+
+                    <th widTilith="200px">Action</th>
                 </tr>
             </thead>
             <tbody>
                 <% for(var i = 0; i< data.length; i++) { %>
                     <tr>
                         <th scope="col"></th>
-                        <td><%= data[i].idAsiakas%></td>
                         <td><%= data[i].idTili%></td>
                         <td><%= data[i].Tilinumero%></td>
                         <td><%= data[i].debit%></td>
                         <td><%= data[i].credit%></td>
-                        <td><%= data[i].Tyyppi%></td>
+                        <td><%= data[i].tyyppi%></td>
+
                         <td>
-                            <a class="btn btn-success edit" href="../Account/edit/<%=data[i].idAsiakas%>">Edit</a>
-                            <a class="btn btn-danger delete" onclick="return alert('Are you sure?')" href="../Account/delete/<%=data[i].idAsiakas%>">Delete</a>
+                            <a class="btn btn-success edit" href="../Account/edit/<%=data[i].idTili%>">Edit</a>
+                            <a class="btn btn-danger delete" onclick="return alert('Are you sure?')" href="../Account/delete/<%=data[i].idTili%>">Delete</a>
                         </td>
                     </tr>
                     <% } %>
@@ -92,36 +92,11 @@
         <% } %>
 
 <% if(!data.length) { %>
-<p class="text-center"> No Account found!</p>
+<p class="text-center"> No account found!</p>
 <% } %>
 
     </div>
     </div>
 
-<<<<<<< Updated upstream
-.dropdown-content a:hover {background-color: rgb(102, 100, 98);}
-
-.dropdown:hover .dropdown-content {display: block;}
-
-.dropdown:hover .dropbtn {background-color: #636160;}
-</style>
-<title> KVG NATIONAL BANK</title>
-</head>
-<body>
-
-<h2>super secret admin site for KVG National Bank</h2>
-
-<div class="dropdown">
-  <button class="dropbtn">Go to</button>
-  <div class="dropdown-content">
-    <a href="/Accounts">Accounts</a>
-    <a href="#">Link 2</a>
-    <a href="#">Link 3</a>
-  </div>
-</div>
-</body>
-</html>
-=======
     </body>
 </html>
->>>>>>> Stashed changes

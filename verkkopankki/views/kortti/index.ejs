@@ -48,10 +48,10 @@
     <div class="card-header">
         <ul class="nav nav-pills w-100">
             <li class="nav-pill active">
-                <a class="nav-link">Customers</a>
+                <a class="nav-link">kortti</a>
             </li>
             <li class="nav-pill ml-auto">
-                <a class="nav-link active" href="/Customers/add"> Add a Customer</a>
+                <a class="nav-link active" href="/kortti/add"> Add a kortti</a>
             </li>
         </ul>
     </div>
@@ -62,12 +62,10 @@
             <thead>
                 <tr>
                     <th scope="col"></th>
-                    <th scope="col">id</th>
-                    <th scope="col">Forename</th>
-                    <th scope="col">Surname</th>
-                    <th scope="col">SSN</th>
-                    <th scope="col">Address</th>
-                    <th scope="col">Phone number</th>
+                    <th scope="col">Asiakas id</th>
+                    <th scope="col">Tili id</th>
+                    <th scope="col">PIN</th>
+                    <th scope="col">Korttinumero</th>
                     <th width="200px">Action</th>
                 </tr>
             </thead>
@@ -75,28 +73,23 @@
                 <% for(var i = 0; i< data.length; i++) { %>
                     <tr>
                         <th scope="col"></th>
-                        <td><%= data[i].idAsiakas%></td>
-                        <td><%= data[i].Etunimi%></td>
-                        <td><%= data[i].Sukunimi%></td>
-                        <td><%= data[i].Hetu%></td>
-                        <td><%= data[i].Osoite%></td>
-                        <td><%= data[i].Puhelin%></td>
+                        <td><%= data[i].asiakas_idAsiakas%></td>
+                        <td><%= data[i].tili_idTili%></td>
+                        <td><%= data[i].PIN%></td>
+                        <td><%= data[i].Korttinumero%></td>
                         <td>
-                            <a class="btn btn-success edit" href="../Customers/edit/<%=data[i].idAsiakas%>">Edit</a>
-                            <a class="btn btn-danger delete" onclick="return alert('Are you sure?')" href="../Customers/delete/<%=data[i].idAsiakas%>">Delete</a>
+                            <a class="btn btn-success edit" href="../kortti/edit/<%=data[i].asiakas_idAsiakas%>">Edit</a>
+                            <a class="btn btn-danger delete" onclick="return alert('Are you sure?')" href="../kortti/delete/<%=data[i].asiakas_idAsiakas%>">Delete</a>
                         </td>
                     </tr>
                     <% } %>
             </tbody>
         </table>
         <% } %>
-
 <% if(!data.length) { %>
-<p class="text-center"> No Customer found!</p>
+<p class="text-center"> No kortti found!</p>
 <% } %>
-
     </div>
     </div>
-
     </body>
 </html>

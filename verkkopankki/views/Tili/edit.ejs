@@ -31,7 +31,7 @@
             cursor: pointer;
         }
         </style>
-        <a href="/Customers" class="button">Back</a>
+        <a href="/account" class="button">Back</a>
     <% if (messages.error) { %>
     <div class="alert alert-danger" role="alert"><%- messages.error %></div>
     <% } %>
@@ -41,30 +41,26 @@
             Edit customer
         </div>
         <div class="card-body">
-            <form action="/Customers/edit/<%= idAsiakas %>" method="post">
+            <form action="/account/edit/<%= idTili %>" method="post">
                 <div class="form-group">
                     <label> id:</label>
-                    <input type="text" class="form-control" name="idAsiakas" value="<%= idAsiakas %>" autocomplete="off">
+                    <input type="text" class="form-control" name="idTili" value="<%= idTili %>" autocomplete="off">
                 </div>
                 <div>
-                <label> Forename:</label>
-                <input type="text" class="form-control" name="Etunimi" value="<%= Etunimi %>" autocomplete="off">
+                <label> Tilinumero:</label>
+                <input type="text" class="form-control" name="Tilinumero" value="<%= Tilinumero %>" autocomplete="off">
                 </div>
                 <div>
-                <label> Surname:</label>
-                <input type="text" class="form-control" name="Sukunimi" value="<%= Sukunimi %>" autocomplete="off">
+                <label> debit:</label>
+                <input type="text" class="form-control" name="debit" value="<%= debit %>" autocomplete="off">
                 </div>
                 <div>
-                <label> SSN:</label>
-                <input type="text" class="form-control" name="Hetu" value="<%= Hetu %>" autocomplete="off">
+                <label> credit:</label>
+                <input type="text" class="form-control" name="credit" value="<%= credit %>" autocomplete="off">
                 </div>
                 <div>
-                <label> Address:</label>
-                <input type="text" class="form-control" name="Osoite" value="<%= Osoite %>" autocomplete="off">
-                </div>
-                <div>
-                <label> Phone number:</label>
-                <input type="text" class="form-control" name="Puhelin" value="<%= Puhelin %>" autocomplete="off">
+                <label> tyyppi:</label>
+                <input type="text" class="form-control" name="tyyppi" value="<%= tyyppi %>" autocomplete="off">
                 </div>
                 <div class="form-group">
                     <input type="Submit" class="btn btn-ifno" value="Update"/>

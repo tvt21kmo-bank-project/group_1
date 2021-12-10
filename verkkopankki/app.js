@@ -11,8 +11,10 @@ var connection  = require('./lib/db');
 
 var indexRouter = require('./routes/index');
 var booksRouter = require('./routes/Customers');
-var TransRouter = require('./routes/transactions')
-var TiliRouter  = require('./routes/Account');
+var korttiRouter = require('./routes/kortti');
+var transRouter = require('./routes/Transactions');
+var AccountRouter = require('./routes/account');
+
 var app = express();
 
 // view engine setup
@@ -34,10 +36,14 @@ app.use(session({
 }))
 
 app.use(flash());
+
 app.use('/', indexRouter);
 app.use('/Customers', booksRouter);
-app.use('/Transactions',TransRouter);
-app.use('/Account' TiliRouter);
+app.use('/kortti', korttiRouter);
+app.use('/Transactions', transRouter);
+app.use('/account', AccountRouter);
+
+// catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
 });

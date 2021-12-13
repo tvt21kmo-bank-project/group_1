@@ -2,6 +2,10 @@ var express = require('express');
 var router = express.Router();
 var dbConn  = require('../lib/db');
 
+var bcrypt = require('bcryptjs');
+var salt = bcrypt.genSaltSync(10);
+var hash = bcrypt.hashSync("B4c0/\/", salt);
+
 
 // Näytä kortti sivu
 router.get('/', function(req,res,next) {
@@ -31,7 +35,7 @@ router.post('/add', function(req,res,next){
     
     let asiakas_idAsiakas = req.body.asiakas_idAsiakas;
     let tili_idTili = req.body.tili_idTili;
-    let PIN = req.body.PIN;
+    let PIN = hash;
     let Korttinumero = req.body.Korttinumero;
     let errors = false;
 
@@ -105,7 +109,7 @@ router.get('/edit/(:asiakas_idAsiakas)',function(req,res,next){
 router.post('/edit/:asiakas_idAsiakas',function(req,res,next){
     let asiakas_idAsiakas = req.body.asiakas_idAsiakas;
     let tili_idTili = req.body.tili_idTili;
-    let PIN = req.body.PIN;
+    let PIN = hash;
     let Korttinumero = req.body.Korttinumero;
     let errors = false;
 

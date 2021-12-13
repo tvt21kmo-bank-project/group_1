@@ -47,8 +47,6 @@ private slots:
 
     void on_btntyhjennys_clicked();
 
-    void on_btnValikko_clicked();
-
 private:
     Ui::PinKoodinVaihto *ui;
     QString Number;

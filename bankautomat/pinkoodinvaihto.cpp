@@ -19,10 +19,12 @@ void PinKoodinVaihto::Tulosta(QNetworkReply *reply)
        if(response_data=="true"){
             qDebug()<<"Vaihto epäonnistui!";
             ui->lineEditPIN->setText("");
+            PIN = "";
        }
        else {
            qDebug()<<"Vaihto onnistui!";
             ui->lineEditPIN->setText("");
+            PIN = "";
             this->close();
        }
 }
@@ -120,10 +122,4 @@ void PinKoodinVaihto::kontaktori(const QString)
     PIN.append(Number);
     ui->lineEditPIN->setText(PIN);
 
-}
-
-void PinKoodinVaihto::on_btnValikko_clicked()
-{
-    ui->lineEditPIN->setText("");
-    this->close();
 }

@@ -38,7 +38,7 @@
 
     <div class="card">
         <div class="card-header">
-            Edit customer
+            Edit Account
         </div>
         <div class="card-body">
             <form action="/account/edit/<%= idTili %>" method="post">
@@ -47,19 +47,19 @@
                     <input type="text" class="form-control" name="idTili" value="<%= idTili %>" autocomplete="off">
                 </div>
                 <div>
-                <label> Tilinumero:</label>
+                <label> Card number:</label>
                 <input type="text" class="form-control" name="Tilinumero" value="<%= Tilinumero %>" autocomplete="off">
                 </div>
                 <div>
-                <label> debit:</label>
+                <label> Debit:</label>
                 <input type="text" class="form-control" name="debit" value="<%= debit %>" autocomplete="off">
                 </div>
                 <div>
-                <label> credit:</label>
+                <label> Credit:</label>
                 <input type="text" class="form-control" name="credit" value="<%= credit %>" autocomplete="off">
                 </div>
                 <div>
-                <label> tyyppi:</label>
+                <label> Card type:</label>
                 <input type="text" class="form-control" name="tyyppi" value="<%= tyyppi %>" autocomplete="off">
                 </div>
                 <div class="form-group">

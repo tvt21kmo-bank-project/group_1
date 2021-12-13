@@ -48,10 +48,10 @@
     <div class="card-header">
         <ul class="nav nav-pills w-100">
             <li class="nav-pill active">
-                <a class="nav-link">kortti</a>
+                <a class="nav-link">Card</a>
             </li>
             <li class="nav-pill ml-auto">
-                <a class="nav-link active" href="/kortti/add"> Add a kortti</a>
+                <a class="nav-link active" href="/kortti/add"> Add a Card</a>
             </li>
         </ul>
     </div>
@@ -62,10 +62,10 @@
             <thead>
                 <tr>
                     <th scope="col"></th>
-                    <th scope="col">Asiakas id</th>
-                    <th scope="col">Tili id</th>
+                    <th scope="col">Customer id</th>
+                    <th scope="col">Account id</th>
                     <th scope="col">PIN</th>
-                    <th scope="col">Korttinumero</th>
+                    <th scope="col">Card number</th>
                     <th width="200px">Action</th>
                 </tr>
             </thead>
@@ -87,7 +87,7 @@
         </table>
         <% } %>
 <% if(!data.length) { %>
-<p class="text-center"> No kortti found!</p>
+<p class="text-center"> No card found!</p>
 <% } %>
     </div>
     </div>

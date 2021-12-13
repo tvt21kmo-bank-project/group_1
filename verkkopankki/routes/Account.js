@@ -24,7 +24,7 @@ router.get('/add', function(req,res,next){
         Tilinumero: '',
         debit: '',
         credit:'',
-        tyyppi:'',
+        Tyyppi:'',
     })
 })
 
@@ -34,7 +34,6 @@ router.post('/add', function(req,res,next){
     let Tilinumero = req.body.Tilinumero;
     let debit = req.body.debit;
     let credit = req.body.credit;
-    let tyyppi = req.body.tyyppi;
     let errors = false;
 
     if(idTili.length === 0 || Tilinumero.length === 0) {
@@ -46,7 +45,7 @@ router.post('/add', function(req,res,next){
             Tilinumero:'',
             debit:'',
             credit:'',
-            tyyppi:''
+            Tyyppi:''
         })
     }
 
@@ -58,7 +57,6 @@ router.post('/add', function(req,res,next){
             Tilinumero: Tilinumero,
             debit: debit,
             credit: credit,
-            tyyppi: tyyppi
         }
 
         dbConn.query('INSERT INTO Tili SET ?', form_data,function(err,result){
@@ -71,11 +69,11 @@ router.post('/add', function(req,res,next){
                     Tilinumero: form_data.Tilinumero,
                     debit: form_data.debit,
                     credit: form_data.credit,
-                    tyyppi: form_data.tyyppi
+                    Tyyppi: form_data.Tyyppi
                 })
             } else {
-                req.flash('success', 'account successfully added');
-                res.redirect('/account');
+                req.flash('success', 'Account successfully added');
+                res.redirect('/Account');
             }
         })
     }
@@ -91,17 +89,17 @@ router.get('/edit/(:idTili)',function(req,res,next){
 
         // jos Tilita ei löydy
         if(rows.length <= 0){
-            req.flash('error', 'No customer found with id = ' + idTili)
-            res.redirect('/account')
+            req.flash('error', 'No Account found with id = ' + idTili)
+            res.redirect('/Account')
         }
         else{
             res.render('Tili/edit', {
-                title: 'Edit Customer',
+                title: 'Edit Account',
                 idTili: rows[0].idTili,
                 Tilinumero: rows[0].Tilinumero,
                 debit: rows[0].debit,
                 credit: rows[0].credit,
-                tyyppi: rows[0].tyyppi
+                Tyyppi: rows[0].Tyyppi
             })
         }
     })
@@ -113,19 +111,19 @@ router.post('/edit/:idTili',function(req,res,next){
     let Tilinumero = req.body.Tilinumero;
     let debit = req.body.debit;
     let credit = req.body.credit;
-    let tyyppi = req.body.tyyppi;
+    let Tyyppi = req.body.Tyyppi;
     let errors = false;
 
     if(idTili.length === 0 || Tilinumero.length === 0){
         errors = true;
 
         req.flash('error', "Please enter something");
-        res.render('account/edit', {
+        res.render('Account/edit', {
            idTili: idTili,
             Tilinumero: Tilinumero,
             debit: debit,
-            credit: credit,
-            tyyppi: tyyppi
+            credit,
+            Tyyppi
         })
     }
     // Jos ei erroreita
@@ -135,21 +133,21 @@ router.post('/edit/:idTili',function(req,res,next){
             Tilinumero: Tilinumero,
             debit: debit,
             credit: credit,
-            tyyppi: tyyppi
+            Tyyppi: Tyyppi
         } // päivittää tietokantaan
         dbConn.query('UPDATE Tili SET ? WHERE idTili = ' + idTili, form_data,function(err, result){
             if(err){
                 req.flash('error', err)
-                res.render('account/edit',{
+                res.render('Account/edit',{
                     idTili: form_data.idTili,
                     Tilinumero: form_data.Tilinumero,
                     debit: form_data.debit,
                     credit: form_data.credit,
-                    tyyppi: form_data.tyyppi
+                    Tyyppi: form_data.Tyyppi
                 })
             } else {
-                req.flash('success', 'Customer successfully updated');
-                res.redirect('/account');
+                req.flash('success', 'Account successfully updated');
+                res.redirect('/Account');
             }
         })
 
@@ -161,10 +159,10 @@ router.get('/delete/(:idTili)', function(req,res,next){
     dbConn.query('DELETE FROM Tili WHERE idTili = ' + idTili,function(err, result){
         if (err){
             req.flash('error',err)
-            res.redirect('/account')
+            res.redirect('/Account')
         } else {
-            req.flash('success', 'Customer successfully deleted! ID = ' + idTili)
-            res.redirect('/account')
+            req.flash('success', 'Account successfully deleted! ID = ' + idTili)
+            res.redirect('/Account')
         }
     })
 })

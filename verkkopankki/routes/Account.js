@@ -24,7 +24,7 @@ router.get('/add', function(req,res,next){
         Tilinumero: '',
         debit: '',
         credit:'',
-        Tyyppi:'',
+        tyyppi:'',
     })
 })
 
@@ -34,6 +34,7 @@ router.post('/add', function(req,res,next){
     let Tilinumero = req.body.Tilinumero;
     let debit = req.body.debit;
     let credit = req.body.credit;
+    let tyyppi = req.body.tyyppi;
     let errors = false;
 
     if(idTili.length === 0 || Tilinumero.length === 0) {
@@ -45,7 +46,7 @@ router.post('/add', function(req,res,next){
             Tilinumero:'',
             debit:'',
             credit:'',
-            Tyyppi:''
+            tyyppi:''
         })
     }
 
@@ -57,6 +58,7 @@ router.post('/add', function(req,res,next){
             Tilinumero: Tilinumero,
             debit: debit,
             credit: credit,
+            tyyppi: tyyppi,
         }
 
         dbConn.query('INSERT INTO Tili SET ?', form_data,function(err,result){
@@ -69,7 +71,7 @@ router.post('/add', function(req,res,next){
                     Tilinumero: form_data.Tilinumero,
                     debit: form_data.debit,
                     credit: form_data.credit,
-                    Tyyppi: form_data.Tyyppi
+                    tyyppi: form_data.tyyppi
                 })
             } else {
                 req.flash('success', 'Account successfully added');
@@ -99,7 +101,7 @@ router.get('/edit/(:idTili)',function(req,res,next){
                 Tilinumero: rows[0].Tilinumero,
                 debit: rows[0].debit,
                 credit: rows[0].credit,
-                Tyyppi: rows[0].Tyyppi
+                tyyppi: rows[0].Tyyppi
             })
         }
     })
@@ -111,7 +113,7 @@ router.post('/edit/:idTili',function(req,res,next){
     let Tilinumero = req.body.Tilinumero;
     let debit = req.body.debit;
     let credit = req.body.credit;
-    let Tyyppi = req.body.Tyyppi;
+    let tyyppi = req.body.tyyppi;
     let errors = false;
 
     if(idTili.length === 0 || Tilinumero.length === 0){
@@ -123,7 +125,7 @@ router.post('/edit/:idTili',function(req,res,next){
             Tilinumero: Tilinumero,
             debit: debit,
             credit,
-            Tyyppi
+            tyyppi
         })
     }
     // Jos ei erroreita
@@ -133,7 +135,7 @@ router.post('/edit/:idTili',function(req,res,next){
             Tilinumero: Tilinumero,
             debit: debit,
             credit: credit,
-            Tyyppi: Tyyppi
+            tyyppi: tyyppi
         } // päivittää tietokantaan
         dbConn.query('UPDATE Tili SET ? WHERE idTili = ' + idTili, form_data,function(err, result){
             if(err){
@@ -143,7 +145,7 @@ router.post('/edit/:idTili',function(req,res,next){
                     Tilinumero: form_data.Tilinumero,
                     debit: form_data.debit,
                     credit: form_data.credit,
-                    Tyyppi: form_data.Tyyppi
+                    tyyppi: form_data.tyyppi
                 })
             } else {
                 req.flash('success', 'Account successfully updated');

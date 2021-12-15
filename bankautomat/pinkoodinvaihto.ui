@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>472</width>
+    <width>457</width>
     <height>395</height>
    </rect>
   </property>
@@ -56,7 +56,7 @@
     <rect>
      <x>80</x>
      <y>130</y>
-     <width>231</width>
+     <width>311</width>
      <height>31</height>
     </rect>
    </property>
@@ -86,9 +86,9 @@
    <property name="geometry">
     <rect>
      <x>80</x>
-     <y>220</y>
-     <width>80</width>
-     <height>21</height>
+     <y>340</y>
+     <width>311</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="font">
@@ -97,7 +97,7 @@
     </font>
    </property>
    <property name="text">
-    <string>Valikkoon</string>
+    <string>Kirjaudu ulos</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_2">
@@ -323,9 +323,27 @@
   <widget class="QPushButton" name="btntyhjennys">
    <property name="geometry">
     <rect>
-     <x>320</x>
+     <x>310</x>
      <y>180</y>
      <width>81</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>&lt;--</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelkertoja">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>200</y>
+     <width>111</width>
      <height>31</height>
     </rect>
    </property>
@@ -335,7 +353,7 @@
     </font>
    </property>
    <property name="text">
-    <string>Tyhjennä</string>
+    <string/>
    </property>
   </widget>
  </widget>

@@ -54,6 +54,7 @@ private:
     QString Number;
     QString PIN;
     QString id;
+    int Paavo;
     void kontaktori(const QString);
     QNetworkAccessManager *manager;
     QNetworkReply *reply;

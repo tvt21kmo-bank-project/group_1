@@ -201,8 +201,9 @@ void Nosto::on_btn0_clicked()
 
 void Nosto::on_btnTyhjennys_clicked()
 {
-    ui->lineEditNostettavaSumma->setText("");
-    Summa = "";
+    Paavo = Summa.length();
+    Summa.remove(Paavo-1,1);
+    ui->lineEditNostettavaSumma->setText(Summa);
 }
 
 void Nosto::kontaktori(const QString)

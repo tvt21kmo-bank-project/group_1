@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -10,6 +11,7 @@ MainWindow::MainWindow(QWidget *parent) :
     idTili = "";
     Number = "";
     vaaraPin = 0;
+    mervi = 0;
     objfreezer = new freezer;
 
 }
@@ -61,7 +63,7 @@ void MainWindow::loginSlot(QNetworkReply *reply)
               idTili+=QString::number(json_obj["asiakas_idAsiakas"].toInt());
             }
 
-            //seuraavalla lainilla tehdään käytännössä samakuin pekan esimerkillä. mutta käytetään truen siasta idtiliä varmistukseen.
+            //seuraavalla lainilla tehdään käytännössä samakuin pekan esimerkillä. mutta käytetään truen siasta idAsiakkaalla varmistukseen.
 
         if(idTili > 0){
             qDebug()<<"Oikea tunnus ...avaa form";
@@ -69,6 +71,7 @@ void MainWindow::loginSlot(QNetworkReply *reply)
             objvalikko->show();
 
             //Nollailua
+            mervi=0;
             vaaraPin = 0;
             ui->txtKertoja->setText("");
             idTili = "";
@@ -83,6 +86,7 @@ void MainWindow::loginSlot(QNetworkReply *reply)
             ui->txtKertoja->setText("Tunnus ja salasana ei täsmää");
             vaaraPin++; // jääkaappi formi
             //Nollailua
+            mervi=0;
             ui->lineEditPIN->setText("");
             ui->lineEditKorttinumero->setText("");
             qDebug()<<"tunnus ja salasana ei täsmää";
@@ -172,10 +176,9 @@ void MainWindow::on_btn0_clicked()
 void MainWindow::Kontaktori(const QString)
 {
     Korttinumero.append(Number);
-    mervi = Korttinumero.length();
-    if(mervi <= 4) {
+    if(mervi == 0) {
         ui->lineEditKorttinumero->setText(Korttinumero);
-    } else if (mervi > 4) {
+    } else if (mervi == 1) {
         PIN.append(Number);
         ui->lineEditPIN->setText(PIN);
     }
@@ -184,8 +187,23 @@ void MainWindow::Kontaktori(const QString)
 
 void MainWindow::on_btntyhjennys_clicked()
 {
-    Korttinumero = "";
-    PIN = "";
-    ui->lineEditKorttinumero->setText("");
-    ui->lineEditPIN->setText("");
+    if(mervi == 0) {
+        Paavo = Korttinumero.length();
+        Korttinumero.remove(Paavo-1,1);
+        ui->lineEditKorttinumero->setText(Korttinumero);
+    } else if (mervi == 1) {
+        Paavo = PIN.length();
+        PIN.remove(Paavo-1,1);
+        ui->lineEditPIN->setText(PIN);
+    }
+}
+
+void MainWindow::on_btnOK_clicked()
+{
+    mervi =mervi+1;
+    if(mervi ==2) {
+        mervi = 0;
+        PIN = "";
+        Korttinumero= "";
+                  }
 }

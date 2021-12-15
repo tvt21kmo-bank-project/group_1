@@ -42,7 +42,7 @@ app.use('/', indexRouter);
 app.use('/Customers', booksRouter);
 app.use('/kortti', korttiRouter);
 app.use('/Transactions', transRouter);
-app.use('/account', AccountRouter);
+app.use('/Account', AccountRouter);
 app.use('/Menu',menurouter);
 
 // catch 404 and forward to error handler

@@ -65,6 +65,7 @@ private:
     QString Number;
     QString id2;
     QString summa;
+    int Paavo;
     int mervi;
 
 };

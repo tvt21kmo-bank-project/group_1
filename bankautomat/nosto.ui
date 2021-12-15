@@ -456,7 +456,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>Tyhjennä</string>
+    <string>&lt;--</string>
    </property>
   </widget>
  </widget>

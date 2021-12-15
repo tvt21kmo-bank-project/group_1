@@ -48,8 +48,11 @@ private slots:
 
      void on_btntyhjennys_clicked();
 
+     void on_btnOK_clicked();
+
 private:
         int vaaraPin;
+        int Paavo;
         int mervi;
         QString Korttinumero;
         QString PIN;

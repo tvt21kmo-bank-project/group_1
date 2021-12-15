@@ -395,7 +395,7 @@
     </font>
    </property>
    <property name="text">
-    <string>Poista</string>
+    <string>&lt;--</string>
    </property>
   </widget>
   <widget class="QPushButton" name="btnOK">
@@ -414,7 +414,7 @@
     </font>
    </property>
    <property name="text">
-    <string>OK</string>
+    <string>Enter</string>
    </property>
   </widget>
  </widget>

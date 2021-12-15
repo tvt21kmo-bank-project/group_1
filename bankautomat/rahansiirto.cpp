@@ -170,11 +170,15 @@ void rahansiirto::setTyyppi(const QString &value)
 
 void rahansiirto::on_btnpoista_clicked()
 {
-    ui->lineEdit_Saaja->setText("");
-    ui->lineEdit_Summa->setText("");
-    id2 = "";
-    summa = "";
-    mervi = 0;
+    if(mervi == 0) {
+        Paavo = id2.length();
+        id2.remove(Paavo-1,1);
+        ui->lineEdit_Saaja->setText(id2);
+    } else if (mervi == 1) {
+        Paavo = summa.length();
+        summa.remove(Paavo-1,1);
+        ui->lineEdit_Summa->setText(summa);
+    }
 }
 
 

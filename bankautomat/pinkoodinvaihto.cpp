@@ -16,14 +16,19 @@ PinKoodinVaihto::~PinKoodinVaihto()
 void PinKoodinVaihto::Tulosta(QNetworkReply *reply)
 {
     QByteArray response_data=reply->readAll();
-       if(response_data=="true"){
+
+    qDebug() << response_data;
+       if(response_data=="false"){
             qDebug()<<"Vaihto epäonnistui!";
+            ui->labelkertoja->setText("Vaihto epäonnistui");
             ui->lineEditPIN->setText("");
+            PIN="";
        }
        else {
            qDebug()<<"Vaihto onnistui!";
+            PIN="";
+            ui->labelkertoja->setText("Vaihto onnistui");
             ui->lineEditPIN->setText("");
-            this->close();
        }
 }
 
@@ -106,8 +111,9 @@ void PinKoodinVaihto::on_btn0_clicked()
 
 void PinKoodinVaihto::on_btntyhjennys_clicked()
 {
-    ui->lineEditPIN->setText("");
-    PIN = "";
+    Paavo = PIN.length();
+    PIN.remove(Paavo-1,1);
+    ui->lineEditPIN->setText(PIN);
 }
 
 void PinKoodinVaihto::setId(const QString &value)
@@ -124,6 +130,8 @@ void PinKoodinVaihto::kontaktori(const QString)
 
 void PinKoodinVaihto::on_btnValikko_clicked()
 {
+    ui->labelkertoja->setText("");
     ui->lineEditPIN->setText("");
+    PIN = "";
     this->close();
 }

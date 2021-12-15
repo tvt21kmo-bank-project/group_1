@@ -69,6 +69,7 @@ private:
     QString id;
     QNetworkAccessManager *manager;
     QNetworkReply *reply;
+    int Paavo;
     QString tyyppi;
     QString maara;
     QString saldo;

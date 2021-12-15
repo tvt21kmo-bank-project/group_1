@@ -62,7 +62,9 @@ void valikko::on_btnPininVaihto_clicked() //reitti pinin vaihtoon
     objPinKoodinVaihto->setId(idTili);
     objPinKoodinVaihto->show();
     ui->txtAsiakas->setText("");
-    asiakas=("");
+    ui->labelinfo->setText("");
+    tilinro="";
+    asiakas="";
     this->close();
 }
 
